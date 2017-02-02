@@ -16,7 +16,7 @@
 }
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 15%;
   font-family: sans-serif;
 }
 @-moz-keyframes App-logo-spin {

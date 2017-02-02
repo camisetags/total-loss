@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import Master from '../templates/master';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  render() {
-    return (
-      <Master />
-    );
-  }
+	render() {
+		return (
+			<div className="container">
+				{this.props.children}
+			</div>
+		);
+	}
 }
 
-export default App;
+function mainState(state) {
+	return {
+		users: state,
+		cards: state
+	};
+}
+
+export default connect(mainState)(App);
