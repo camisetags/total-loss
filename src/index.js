@@ -7,6 +7,7 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/app';
 import SelectPlayers from './components/game/selectPlayers';
+import DeckSelector from './components/cards/deckSelector';
 import reducers from './reducers';
 
 import 'materialize-css/dist/css/materialize.css';
@@ -23,7 +24,7 @@ const AppRoutes = () => (
 		<Router history={browserHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={SelectPlayers} />
-				<Route path="player-two" component={SelectPlayers}/>
+				<Route path="/select-deck" component={DeckSelector} />
 			</Route>
 		</Router>
 	</Provider>

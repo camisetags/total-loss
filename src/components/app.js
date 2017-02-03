@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class App extends Component {
 	render() {
@@ -11,11 +10,4 @@ class App extends Component {
 	}
 }
 
-function mainState(state) {
-	return {
-		users: state,
-		cards: state
-	};
-}
-
-export default connect(mainState)(App);
+export default App;
