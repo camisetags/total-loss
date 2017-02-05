@@ -1,8 +1,8 @@
 import ActionsType from '../constants/gameActionsType';
 
-export function startGame(player) {
+export const startGame = (player) => {
 	return {
 		type: ActionsType.SELETCT_PLAYER
 		player
 	}
-}
+};

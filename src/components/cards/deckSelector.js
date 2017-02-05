@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class DeckSelector extends Component {
 	render() {
@@ -28,4 +29,10 @@ class DeckSelector extends Component {
 	}
 }
 
-export default DeckSelector;
+function mapStateToProps(state) {
+	return {
+		users: state.users
+	};
+}
+
+export default connect(mapStateToProps)(DeckSelector);

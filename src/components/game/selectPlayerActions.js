@@ -3,17 +3,13 @@ import { Link } from 'react-router';
 
 const SelectPlayersActions = (props) => (
 	<div className="row">
-		<div className="col s6">
-    	<button type="button" className="btn waves-effect" onClick={() => props.handleDispatchUser()}>
-				Adicionar jogador
-			</button>
-		</div>
+  	<button type="button" className="btn waves-effect col s3" onClick={() => props.handleDispatchUser()}>
+			Adicionar jogador
+		</button>
 		
-		<div className="col s6">
-			<Link to="/select-deck" className="btn waves-effect">
-				Escolher deck
-			</Link>
-		</div>
+		<Link to="/select-deck" className="btn waves-effect col s3 offset-s6">
+			Escolher deck
+		</Link>
 	</div>
 );
 

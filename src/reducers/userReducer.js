@@ -8,7 +8,7 @@ export default function userReducer(state = [], action) {
 				...state,
 				action.user
 			];
-			console.log(`Users added ${users[users.length-1].name}`);
+			console.log(`User added ${users[users.length-1].name}`);
 			return users;
 
 		default:
