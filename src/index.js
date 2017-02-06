@@ -9,10 +9,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import App from './components/app';
 import SelectPlayers from './components/game/selectPlayers';
 import DeckSelect from './components/deck/selectDeck';
-import requireUsers from './components/cards/requireUsers';
+import requireUsers from './components/deck/requireUsers';
 
 import reducers from './reducers';
-import { saveState } from './utils/storage';
+// import { saveState } from './utils/storage';
 
 import Async from './middlewares/async';
 
@@ -22,12 +22,11 @@ import './styles/style.css';
 
 const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 const store = createStoreWithMiddleware(reducers);
+const history = syncHistoryWithStore(browserHistory, store);
 
-const history = syncHistoryWithStore(browserHistory, store)
-
-store.subscribe(() => {
-	saveState(store.getState());
-});
+// store.subscribe(() => {
+// 	saveState(store.getState());
+// });
 
 const documentElement = document.getElementById('app');
 
@@ -36,7 +35,7 @@ const AppRoutes = () => (
 		<Router history={history}>
 			<Route path="/" component={App}>
 				<IndexRoute component={SelectPlayers} />
-				<Route path="/select-deck" component={DeckSelect} />
+				<Route path="/select-deck" component={requireUsers(DeckSelect)} />
 			</Route>
 		</Router>
 	</Provider>

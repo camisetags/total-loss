@@ -27,7 +27,7 @@ class SelectPlayers extends Component {
 	render() {
 		return (
 			<div className="row">
-		    <div className="col s12 m12">
+		    <div className="col s12 m12 l12">
 		      <div className="card">
 		        <div className="card-content">
 		        	<input type="hidden" ref="playerNum" />
@@ -51,8 +51,7 @@ class SelectPlayers extends Component {
 
 function mapStateToProps(state) {
 	return { 
-		playerNum: state.playerNum,
-		userName: state.userName
+		playerNum: state.playerNum
 	};
 }
 
