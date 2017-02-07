@@ -1,7 +1,6 @@
 
-const ActionsType = {
-	SELETCT_PLAYER: 'SELETCT_PLAYER',
+const GameActionsType = {
 	START_GAME: 'START_GAME'
 };
 
-export default ActionsType;
+export default GameActionsType;

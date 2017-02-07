@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Actions from '../../actions/deckActions';
+import * as GameActions from '../../actions/gameActions';
 import Deck from './deck';
 import { connect } from 'react-redux';
 
@@ -9,40 +10,30 @@ class SelectDeck extends Component {
 		this.props.fetchDecks();
 	}
 
-	deckLoading() {
-		return (
-			<div className="col s1 l5 offset-s5"> 
-				<div className="preloader-wrapper big active">
-			    <div className="spinner-layer spinner-blue-only">
-			      <div className="circle-clipper left">
-			        <div className="circle"></div>
-			      </div>
-			      <div className="gap-patch">
-			        <div className="circle"></div>
-			      </div>
-			      <div className="circle-clipper right">
-			        <div className="circle"></div>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-		);
-	}
-
-	renderDecks() {
-		if (typeof this.props.decks === 'undefined') {
-			return this.deckLoading();
-		} else {
-			return this.props.decks.map((deck, index) => {
-				return <Deck key={index} description={deck.description} title={deck.title} />
-			});
-		}
-	}
-
 	render() {
 		return (
 			<div className="row">
-				{this.renderDecks()}
+				{typeof this.props.decks === 'undefined' ? (
+					<div className="col s1 l5 offset-s5"> 
+						<div className="preloader-wrapper big active">
+					    <div className="spinner-layer spinner-blue-only">
+					      <div className="circle-clipper left">
+					        <div className="circle"></div>
+					      </div>
+					      <div className="gap-patch">
+					        <div className="circle"></div>
+					      </div>
+					      <div className="circle-clipper right">
+					        <div className="circle"></div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				) : (
+					this.props.decks.map((deck, index) => {
+						return <Deck key={index} title={deck.title} deckId={deck.id} description={deck.description} />
+					})
+				)}
 			</div>
 		);
 	}
@@ -50,8 +41,11 @@ class SelectDeck extends Component {
 
 function mapStateToProps(state) {
 	return {
-		decks: state.decks
+		decks: state.decks,
+		users: state.users
 	}
 }
 
-export default connect(mapStateToProps, Actions)(SelectDeck);
+const Act = {...Actions, ...GameActions};
+
+export default connect(mapStateToProps, Act)(SelectDeck);
