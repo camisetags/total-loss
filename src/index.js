@@ -39,7 +39,7 @@ const AppRoutes = () => (
 			<Route path="/" component={App}>
 				<IndexRoute component={SelectPlayers} />
 				<Route path="/select-deck" component={requireUsers(DeckSelect)} />
-				<Route path="/game/:deckId" component={requireUsers(Game)} />
+				<Route path="/game" component={requireUsers(Game)} />
 			</Route>
 		</Router>
 	</Provider>

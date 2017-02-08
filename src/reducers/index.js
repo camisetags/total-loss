@@ -7,9 +7,9 @@ import deckReducer from './deckReducer';
 
 const rootReducer = combineReducers({
 	routing: routerReducer,
-	game: gameReducer,
+	users: userReducer,
 	decks: deckReducer,
-	users: userReducer
+	game: gameReducer
 });
 
 export default rootReducer;

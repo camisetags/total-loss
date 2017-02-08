@@ -72,7 +72,7 @@ const DecksService = {
 		return new Promise((resolve, reject) => {
 			window.setTimeout(() => {
 				resolve(
-					R.find(R.propEq('id', deckId))(decks)
+					R.find(R.propEq('id', deckId))(decks.data)
 				);
 			}, 1500);
 		});

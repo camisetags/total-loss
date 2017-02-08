@@ -51,7 +51,8 @@ class SelectPlayers extends Component {
 
 function mapStateToProps(state) {
 	return { 
-		playerNum: state.playerNum
+		playerNum: state.playerNum,
+		users: state.users
 	};
 }
 

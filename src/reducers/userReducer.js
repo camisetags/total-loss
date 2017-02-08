@@ -10,6 +10,9 @@ export default function userReducer(state = [], action) {
 			];
 			console.log(`User added ${users[users.length-1].name}`);
 			return users;
+		
+		case UserActionsType.PASS_USERS:
+			return [ ...action.users ];
 
 		default:
 			return state;
