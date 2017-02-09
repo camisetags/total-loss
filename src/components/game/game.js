@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import 
 import * as Actions from '../../actions/gameActions';
+import Loading from '../loading';
+
+// import beerImg from './beer.jpg';
 
 class Game extends Component {
 
@@ -16,29 +20,21 @@ class Game extends Component {
 		return (
 			<div className="row">
 				{ typeof this.props.game.deck === 'undefined' ? ( 
-					<div className="col s1 l5 offset-s5"> 
-						<div className="preloader-wrapper big active">
-					    <div className="spinner-layer spinner-blue-only">
-					      <div className="circle-clipper left">
-					        <div className="circle"></div>
-					      </div>
-					      <div className="gap-patch">
-					        <div className="circle"></div>
-					      </div>
-					      <div className="circle-clipper right">
-					        <div className="circle"></div>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+					<Loading />
 				) : (
-					<div className="col s1 l12 card">
-						<h3>
-							{ this.props.game.deck.title }
-						</h3>
-						<p>
-							{ this.props.game.deck.cards[0].challenge }
-						</p>
+					<div className="col s1 l12">
+						<div className="card blue-grey">
+	            <div className="card-content white-text">
+	              <span className="card-title">{ this.props.game.deck.title }</span>
+	              <p>{ this.props.game.deck.cards[0].challenge }</p>
+	              <p>{ this.props.game.deck.cards[0].challengeResult }</p>
+	            </div>
+	            <div className="card-action">
+	              <a href="#">Aceitar +{ this.props.game.deck.cards[0].accept }</a>
+	              <a href="#">Passar { this.props.game.deck.cards[0].pass }</a>
+	              <a href="#">Tomar 2 shots +{ this.props.game.deck.cards[0].drink }</a>
+	            </div>
+	          </div>
 					</div>
 				) }
 			</div>

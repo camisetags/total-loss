@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import * as DeckActions from '../../actions/deckActions';
 import * as GameActions from '../../actions/gameActions';
 import Deck from './deck';
-import { connect } from 'react-redux';
+import Loading from '../loading';
+
+
 
 class SelectDeck extends Component {
 		
@@ -25,21 +29,7 @@ class SelectDeck extends Component {
 		return (
 			<div className="row">
 				{ typeof this.props.decks.map === 'undefined' ? (
-					<div className="col s1 l5 offset-s5"> 
-						<div className="preloader-wrapper big active">
-					    <div className="spinner-layer spinner-blue-only">
-					      <div className="circle-clipper left">
-					        <div className="circle"></div>
-					      </div>
-					      <div className="gap-patch">
-					        <div className="circle"></div>
-					      </div>
-					      <div className="circle-clipper right">
-					        <div className="circle"></div>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+					<Loading />
 				) : (
 					this.props.decks.map((deck, index) => {
 						return <Deck 
