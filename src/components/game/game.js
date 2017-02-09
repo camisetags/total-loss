@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import 
 import * as Actions from '../../actions/gameActions';
 import Loading from '../loading';
 
