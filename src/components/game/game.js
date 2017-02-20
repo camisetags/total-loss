@@ -23,17 +23,17 @@ class Game extends Component {
 				) : (
 					<div className="col s1 l12">
 						<div className="card blue-grey">
-	            <div className="card-content white-text">
-	              <span className="card-title">{ this.props.game.deck.title }</span>
-	              <p>{ this.props.game.deck.cards[0].challenge }</p>
-	              <p>{ this.props.game.deck.cards[0].challengeResult }</p>
-	            </div>
-	            <div className="card-action">
-	              <a href="#">Aceitar +{ this.props.game.deck.cards[0].accept }</a>
-	              <a href="#">Passar { this.props.game.deck.cards[0].pass }</a>
-	              <a href="#">Tomar 2 shots +{ this.props.game.deck.cards[0].drink }</a>
-	            </div>
-	          </div>
+							<div className="card-content white-text">
+								<span className="card-title">{ this.props.game.deck.title }</span>
+								<p>{ this.props.game.deck.cards[0].challenge }</p>
+								<p>{ this.props.game.deck.cards[0].challengeResult }</p>
+							</div>
+							<div className="card-action">
+								<a href="#">Aceitar +{ this.props.game.deck.cards[0].accept }</a>
+								<a href="#">Passar { this.props.game.deck.cards[0].pass }</a>
+								<a href="#">Tomar 2 shots +{ this.props.game.deck.cards[0].drink }</a>
+							</div>
+	          			</div>
 					</div>
 				) }
 			</div>
