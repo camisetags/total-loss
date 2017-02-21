@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions/gameActions';
 import Loading from '../loading';
+import GameCard from './gameCard';
+import UserScore from './userScore';
 
-// import beerImg from './beer.jpg';
 
 class Game extends Component {
 
@@ -17,23 +18,19 @@ class Game extends Component {
 
 	render() {
 		return (
-			<div className="row">
+			<div>	
 				{ typeof this.props.game.deck === 'undefined' ? ( 
-					<Loading />
+						<Loading />
 				) : (
-					<div className="col s1 l12">
-						<div className="card blue-grey">
-							<div className="card-content white-text">
-								<span className="card-title">{ this.props.game.deck.title }</span>
-								<p>{ this.props.game.deck.cards[0].challenge }</p>
-								<p>{ this.props.game.deck.cards[0].challengeResult }</p>
-							</div>
-							<div className="card-action">
-								<a href="#">Aceitar +{ this.props.game.deck.cards[0].accept }</a>
-								<a href="#">Passar { this.props.game.deck.cards[0].pass }</a>
-								<a href="#">Tomar 2 shots +{ this.props.game.deck.cards[0].drink }</a>
-							</div>
-	          			</div>
+					<div>
+						<div className="row">
+							{this.props.game.users.map((user, index) => {
+								return <UserScore key={index} user={user.name} score={user.score} />;
+							})}
+						</div>
+						<div className="row">
+							<GameCard game={this.props.game} />
+						</div>				
 					</div>
 				) }
 			</div>
