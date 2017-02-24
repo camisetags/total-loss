@@ -10,22 +10,22 @@ const GameCard = (props) => (
       </div>
       <div className="card-action">
         <div className="row">
-          <div className="col l4">
-            <a className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)} href="#">
+          <div className="col l4 s12">
+            <button className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)}>
               Aceitar +{ props.game.deck.cards[0].accept }
-            </a>
+            </button>
           </div>
 
-          <div className="col l4">
-            <a className="btn waves-effect waves-light" href="#">
+          <div className="col l4 s12">
+            <button className="btn waves-effect waves-light" href="#">
               Passar { props.game.deck.cards[0].pass }
-            </a>
+            </button>
           </div>
 
-          <div className="col l4">
-            <a className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)} href="#">
+          <div className="col l4 s12">
+            <button className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)}>
               Tomar 2 shots +{ props.game.deck.cards[0].drink }
-            </a>
+            </button>
           </div>
         </div>
       </div>
