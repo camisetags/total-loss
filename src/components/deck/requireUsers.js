@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export default function requireUsers(ComposedComponent) {
-	class RequireUsers extends Component {
-		
+	class RequireUsers extends Component {	
 		static contextTypes = {
 			router: React.PropTypes.object
 		}

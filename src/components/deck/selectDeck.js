@@ -7,7 +7,6 @@ import Deck from './deck';
 import Loading from '../loading';
 
 
-
 class SelectDeck extends Component {
 		
 	componentWillMount() {
@@ -51,6 +50,6 @@ function mapStateToProps(state) {
 	}
 }
 
-const Act = {...DeckActions, ...GameActions};
+const Act = { ...DeckActions, ...GameActions };
 
 export default connect(mapStateToProps, Act)(SelectDeck);

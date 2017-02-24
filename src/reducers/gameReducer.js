@@ -21,6 +21,11 @@ export default function gameReducer(state={}, action) {
 				},
 				users: [ ...action.users ]
 			};
+		
+		case ActionsType.ADD_POINT:
+			action.game.users[action.userIndex].score += action.amountToAdd;
+			console.log('Game object ====> ', action.game);
+			return action.game;
 
 		default:
 			return state;

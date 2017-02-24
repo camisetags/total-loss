@@ -16,6 +16,17 @@ class Game extends Component {
 		console.log('Props loaded ', this.props);
 	}
 
+	addPoint(userIndex, amountToAdd) {
+		this.props.addPoint(
+			userIndex,
+			amountToAdd,
+			this.props.game
+		)
+	}
+
+	// To implement
+	subtractPoint() {}
+
 	render() {
 		return (
 			<div>	
@@ -29,7 +40,9 @@ class Game extends Component {
 							})}
 						</div>
 						<div className="row">
-							<GameCard game={this.props.game} />
+							<GameCard 
+								game={this.props.game} 
+								addPoint={(userIndex, amountToAdd) => this.addPoint(userIndex, amountToAdd)} />
 						</div>				
 					</div>
 				) }

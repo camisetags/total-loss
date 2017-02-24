@@ -9,9 +9,25 @@ const GameCard = (props) => (
         <p>{ props.game.deck.cards[0].challengeResult }</p>
       </div>
       <div className="card-action">
-        <a href="#">Aceitar +{ props.game.deck.cards[0].accept }</a>
-        <a href="#">Passar { props.game.deck.cards[0].pass }</a>
-        <a href="#">Tomar 2 shots +{ props.game.deck.cards[0].drink }</a>
+        <div className="row">
+          <div className="col l4">
+            <a className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)} href="#">
+              Aceitar +{ props.game.deck.cards[0].accept }
+            </a>
+          </div>
+
+          <div className="col l4">
+            <a className="btn waves-effect waves-light" href="#">
+              Passar { props.game.deck.cards[0].pass }
+            </a>
+          </div>
+
+          <div className="col l4">
+            <a className="btn waves-effect waves-light" onClick={() => props.addPoint(1, 1)} href="#">
+              Tomar 2 shots +{ props.game.deck.cards[0].drink }
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

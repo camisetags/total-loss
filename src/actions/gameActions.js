@@ -8,5 +8,23 @@ export const startGame = (deckId, users) => {
 		type: ActionsType.START_GAME,
 		payload: request,
 		users
-	}
+	};
+};
+
+export const addPoint = (userIndex, amountToAdd, game) => {
+	return {
+		type: ActionsType.ADD_POINT,
+		userIndex,
+		amountToAdd,
+		game
+	};
+};
+
+export const subtractPoint = (userIndex, amountToSubtract, game) => {
+	return {
+		type: ActionsType.SUBTRACT_POINT,
+		userIndex,
+		amountToSubtract,
+		game
+	};
 };
