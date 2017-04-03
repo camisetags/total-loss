@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserScore = (props) => (
   <div className="col s12 l2">
-    <b>{props.user}: {props.score}</b>
+    <b>{props.user.name}: {props.user.score}</b>
   </div>
 );
 

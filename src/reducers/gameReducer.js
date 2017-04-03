@@ -15,17 +15,25 @@ export default function gameReducer(state={}, action) {
 	switch(action.type) {
 		case ActionsType.START_GAME:
 			return {
+				...state,
 				deck: { 
 					...action.payload, 
 					cards: shuffle(action.payload.cards) 
 				},
-				users: [ ...action.users ]
+				users: [ ...action.users ],
+				cardIndex: 0,
+				userIndex: 0
 			};
 		
 		case ActionsType.ADD_POINT:
-			action.game.users[action.userIndex].score += action.amountToAdd;
-			console.log('Game object ====> ', action.game);
-			return action.game;
+			state.users[state.userIndex].score += action.amountToAdd;
+			state.cardIndex += 1;
+			state.userIndex += 1;
+			if (state.users.length <= state.userIndex) {
+				state.userIndex = 0;
+			}
+			console.log('Game object ====> ', state);
+			return { ...state };
 
 		default:
 			return state;

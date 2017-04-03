@@ -11,12 +11,11 @@ export const startGame = (deckId, users) => {
 	};
 };
 
-export const addPoint = (userIndex, amountToAdd, game) => {
+export const addPoint = (amountToAdd) => {
+	console.log('Amount to add ======> ', amountToAdd);
 	return {
 		type: ActionsType.ADD_POINT,
-		userIndex,
-		amountToAdd,
-		game
+		amountToAdd
 	};
 };
 

@@ -16,11 +16,9 @@ class Game extends Component {
 		console.log('Props loaded ', this.props);
 	}
 
-	addPoint(userIndex, amountToAdd) {
+	addPoint(amountToAdd) {
 		this.props.addPoint(
-			userIndex,
-			amountToAdd,
-			this.props.game
+			amountToAdd
 		)
 	}
 
@@ -36,13 +34,14 @@ class Game extends Component {
 					<div>
 						<div className="row">
 							{this.props.game.users.map((user, index) => {
-								return <UserScore key={index} user={user.name} score={user.score} />;
+								return <UserScore key={index} user={user} />;
 							})}
 						</div>
 						<div className="row">
 							<GameCard 
-								game={this.props.game} 
-								addPoint={(userIndex, amountToAdd) => this.addPoint(userIndex, amountToAdd)} />
+								game={this.props.game}
+								cardIndex={this.props.game.cardIndex}
+								addPoint={(amountToAdd) => this.addPoint(amountToAdd)} />
 						</div>				
 					</div>
 				) }
