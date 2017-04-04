@@ -6,7 +6,6 @@ const GameCard = (props) => (
       <div className="card-content white-text">
         <span className="card-title">{ props.game.deck.title }</span>
         <p>{ props.game.deck.cards[props.cardIndex].challenge }</p>
-        <p>{ props.game.deck.cards[props.cardIndex].challengeResult }</p>
       </div>
       <div className="card-action">
         <div className="row">

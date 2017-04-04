@@ -4,9 +4,38 @@ let decks = {
 	data: [
 		{
 			id: 1,
-			title: 'Sacanagem',
+			title: 'Sacanagem (+18)',
 			description: 'Desafios envolvendo altas put**as.',
-			cards: []
+			cards: [
+				{
+					challenge: 'Aperte o peitinho do amigo(a) a sua esquerda, se ele negar... TOME 2 SHOTS!',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Dê uma patolada no amigo(a) a sua direita,  se ele negar... TOME 2 SHOTS',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Selinho no amigo(a) a direita,  se ele negar... TOME 2 SHOTS',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Mostre o pinto/pepeca. Se arregar, aperte o passe e tome 1 shot',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+			]
 		},
 
 		{
@@ -56,7 +85,36 @@ let decks = {
 			id: 3,
 			title: 'Beber por beber',
 			description: 'Para aqueles que querem beber sem motivo nenhum xD',
-			cards: []
+			cards: [
+				{
+					challenge: 'Tome um shot sem dobrar o cotovelo, se errar a boca, tome dois shots e aperte o passe',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Troque de lugar com seu amigo a esquerda e tome 1 Shot',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Conte até três e tome 1 shot',
+					accept: +1,
+					pass: -1,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+				{
+					challenge: 'Não seja tímido! Fale com um desconhecido ou tome 2 shots! (Vale mandar mensagem por whats/face)',
+					accept: +2,
+					pass: -2,
+					drink: +1,
+					challengeResult: `Aceitar +2 pontos. Passar -2 pontos. Beber 1 shot +1 ponto`
+				},
+			]
 		}
 	]
 };
