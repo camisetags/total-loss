@@ -6,6 +6,8 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.7.0",
     "materialize-css": "^0.98.0",
     "ramda": "^0.23.0",
     "react": "^15.4.2",

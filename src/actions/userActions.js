@@ -6,6 +6,7 @@ export const addUserToTheGame = (userName, playerNum) => {
 		user: {
 			id: playerNum,
 			name: userName,
+			target: false
 		}
 	}
 };

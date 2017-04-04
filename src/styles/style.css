@@ -22,6 +22,9 @@ body {
 .user-button {
   margin-bottom: 10px;
 }
+.target-user {
+  color: #f00;
+}
 .deck-list {
   margin-left: 4px;
 }

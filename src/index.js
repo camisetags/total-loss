@@ -13,23 +13,19 @@ import Game from './components/game/game';
 import requireUsers from './components/deck/requireUsers';
 
 import reducers from './reducers';
-// import { saveState } from './utils/storage';
 
 import Async from './middlewares/async';
-// import InitGame from './middlewares/initGame';
 
 import 'materialize-css/dist/css/materialize.css';
 import 'materialize-css/dist/js/materialize.js';
+import 'font-awesome/css/font-awesome.css';
+import 'animate.css/animate.css';
 import './styles/style.css';
 
 const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 const store = createStoreWithMiddleware(reducers);
 const history = syncHistoryWithStore(browserHistory, store);
-
-// store.subscribe(() => {
-// 	saveState(store.getState());
-// });
 
 const documentElement = document.getElementById('app');
 

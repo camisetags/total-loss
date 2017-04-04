@@ -33,6 +33,7 @@ class SelectDeck extends Component {
 					this.props.decks.map((deck, index) => {
 						return <Deck 
 							key={index} 
+							target={index}
 							title={deck.title} 
 							handleStartGame={() => this.handleStartGame(deck.id)}
 							description={deck.description} />

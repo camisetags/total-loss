@@ -1,7 +1,7 @@
 import React from 'react';
 
 const GameCard = (props) => (
-  <div className="col s12 l12">
+  <div className="col s12 l12 animated rotateIn">
     <div className="card blue-grey">
       <div className="card-content white-text">
         <span className="card-title">{ props.game.deck.title }</span>

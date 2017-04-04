@@ -6,7 +6,7 @@ export default function userReducer(state = [], action) {
 			action.user.score = 0;
 			const users = [
 				...state,
-				action.user
+				action.user,
 			];
 			console.log(`User added ${users[users.length-1].name}`);
 			return users;

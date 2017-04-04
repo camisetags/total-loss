@@ -26,7 +26,7 @@ class SelectPlayers extends Component {
 
 	render() {
 		return (
-			<div className="row">
+			<div className="row animated fadeIn">
 		    <div className="col s12 m12 l12">
 		      <div className="card">
 		        <div className="card-content">
