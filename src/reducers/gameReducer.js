@@ -31,6 +31,11 @@ function addUserPoint(state, action) {
 	if (state.users.length <= state.userIndex) {
 		state.userIndex = 0;
 	}
+	if (state.deck.cards.length <= state.cardIndex) {
+		const winner = state.users.reduce((prev, curr) => prev > curr ? prev : curr);
+		winner.isWinner = true;
+		return winner;
+	}
 	state.users[state.userIndex].target = true;
 	console.log('Game object ====> ', state);
 	return state;

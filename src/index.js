@@ -10,6 +10,7 @@ import App from './components/app';
 import SelectPlayers from './components/user/selectPlayers';
 import DeckSelect from './components/deck/selectDeck';
 import Game from './components/game/game';
+import GameOver from './components/game/gameOver';
 import requireUsers from './components/deck/requireUsers';
 
 import reducers from './reducers';
@@ -36,6 +37,7 @@ const AppRoutes = () => (
 				<IndexRoute component={SelectPlayers} />
 				<Route path="/select-deck" component={requireUsers(DeckSelect)} />
 				<Route path="/game" component={requireUsers(Game)} />
+				<Route path="/game-over/:username" component={requireUsers(GameOver)} />
 				<Route path="*" compoenent={SelectPlayers} />
 			</Route>
 		</Router>

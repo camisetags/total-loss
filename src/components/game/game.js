@@ -4,6 +4,7 @@ import * as Actions from '../../actions/gameActions';
 import Loading from '../loading';
 import GameCard from './gameCard';
 import UserScore from './userScore';
+import { browserHistory } from 'react-router';
 
 
 class Game extends Component {
@@ -14,6 +15,9 @@ class Game extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		console.log('Props loaded ', this.props);
+		if (this.props.game.isWinner) {
+			browserHistory.push(`/game-over/${this.props.game.name}`);
+		}
 	}
 
 	addPoint(amountToAdd) {
