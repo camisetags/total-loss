@@ -10,26 +10,15 @@ const GameCard = (props) => (
       </div>
       <div className="card-action">
         <div className="row">
-          <div className="col l4 s12">
-            <button className="btn waves-effect waves-light" 
-              onClick={() => props.addPoint(props.game.deck.cards[props.cardIndex].accept)}>
-              Aceitar +{ props.game.deck.cards[props.cardIndex].accept }
-            </button>
-          </div>
-
-          <div className="col l4 s12">
-            <button className="btn waves-effect waves-light" 
-              onClick={() => props.addPoint(props.game.deck.cards[props.cardIndex].pass)}>
-              Passar { props.game.deck.cards[props.cardIndex].pass }
-            </button>
-          </div>
-
-          <div className="col l4 s12">
-            <button className="btn waves-effect waves-light" 
-              onClick={() => props.addPoint(props.game.deck.cards[props.cardIndex].drink)}>
-              Tomar 2 shots +{ props.game.deck.cards[props.cardIndex].drink }
-            </button>
-          </div>
+          <button className="btn waves-effect waves-light col s12 l3 user-button" 
+            onClick={() => props.addPoint(props.game.deck.cards[props.cardIndex].accept)}>
+            Aceitar +{ props.game.deck.cards[props.cardIndex].accept }
+          </button>
+        
+          <button className="btn waves-effect waves-light col s12 l3 offset-l6 user-button" 
+            onClick={() => props.addPoint(props.game.deck.cards[props.cardIndex].pass)}>
+            Passar { props.game.deck.cards[props.cardIndex].pass }
+          </button>
         </div>
       </div>
     </div>

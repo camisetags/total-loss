@@ -22,9 +22,6 @@ class Game extends Component {
 		)
 	}
 
-	// To implement
-	subtractPoint() {}
-
 	render() {
 		return (
 			<div>	
