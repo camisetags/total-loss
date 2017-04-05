@@ -1,13 +1,30 @@
 import ActionsType from './constants/gameActionsType';
 import DeckService from '../services/deck';
 
-export const startGame = (deckId, users) => {
-	let request = DeckService.get(deckId);
+// export const startGame = (deckId, users) => {
+// 	let request = DeckService.get(deckId);
 
-	return {
-		type: ActionsType.START_GAME,
-		payload: request,
-		users
+	// return {
+	// 	type: ActionsType.START_GAME,
+	// 	payload: request,
+	// 	users
+	// };
+// };
+
+export const startGame = (deckId, users) => {
+	return (dispatch) => {
+		DeckService.get(deckId)
+			.then((response) => {
+				console.log(`Response of deck service ${response}`);
+				dispatch({
+					type: ActionsType.START_GAME,
+					payload: response,
+					users
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 };
 

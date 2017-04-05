@@ -1,4 +1,4 @@
-import ActionsType from '../actions/constants/gameActionsType';
+import ActionsType from '../actions/constants';
 
 export default function gameReducer(state={}, action) {
 	switch(action.type) {
