@@ -32,7 +32,7 @@ server_entry.write(u'<?php include_once("index.html"); ?>')
 server_entry.close()
 
 server_entry = open('./build/composer.json', 'w')
-server_entry.write(u'\{\}')
+server_entry.write(u'{}')
 server_entry.close()
 
 print(css_files)
