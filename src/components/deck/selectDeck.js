@@ -10,7 +10,9 @@ import Loading from '../loading';
 class SelectDeck extends Component {
 		
 	componentWillMount() {
-		this.props.fetchDecks();
+		if (this.props.decks.length === 0) {
+			this.props.fetchDecks();
+		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
