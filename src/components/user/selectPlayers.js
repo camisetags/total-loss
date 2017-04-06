@@ -6,22 +6,11 @@ import SelectPlayersActions from './selectPlayerActions';
 
 class SelectPlayers extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			playerNum: 1
-		};
-	}
-
 	handleDispatchUser() {
 		this.props.addUserToTheGame(
-			this.refs.userName.value,
-			this.state.playerNum
+			this.refs.userName.value
 		);
 		this.refs.userName.value = '';
-		this.setState({
-			playerNum: ++this.state.playerNum
-		});
 	}
 
 	render() {
@@ -31,7 +20,7 @@ class SelectPlayers extends Component {
 		      <div className="card">
 		        <div className="card-content">
 		        	<input type="hidden" ref="playerNum" />
-		          <span className="card-title">Digite o nome do Jogador {this.state.playerNum}</span>	
+		          <span className="card-title">Digite o nome do Jogador { this.props.users.length + 1 }</span>	
 							
 							<div className="input-field">
 			          <input id="player_name" type="text" ref="userName" className="validate" />

@@ -1,4 +1,4 @@
-import ActionsType from '../actions/constants/gameActionsType';
+import * as ActionsType from '../actions/constants';
 
 export default function gameReducer(state={}, action) {
 	switch(action.type) {
@@ -28,16 +28,23 @@ function addUserPoint(state, action) {
 	state.users[state.userIndex].target = false;
 	state.cardIndex += 1;
 	state.userIndex += 1;
-	if (state.users.length <= state.userIndex) {
-		state.userIndex = 0;
-	}
+	state.userIndex = checkIfUserIndexExists(state);
+	state.users[state.userIndex].target = true;
+	state = checkIfCardsIndexExists(state);
+	console.log('Game object ====> ', state);
+	return state;
+}
+
+function checkIfUserIndexExists(state) {
+	return state.users.length <= state.userIndex ? 0 : state.userIndex;
+}
+
+function checkIfCardsIndexExists(state) {
 	if (state.deck.cards.length <= state.cardIndex) {
 		const winner = state.users.reduce((prev, curr) => prev > curr ? prev : curr);
 		winner.isWinner = true;
 		return winner;
 	}
-	state.users[state.userIndex].target = true;
-	console.log('Game object ====> ', state);
 	return state;
 }
 

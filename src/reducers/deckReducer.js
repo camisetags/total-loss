@@ -1,9 +1,10 @@
-import DeckActionsType from '../actions/constants/deckActionsType';
+import * as ActionsType from '../actions/constants';
 
 export default function deckReducer(state = [], action) {
 	switch (action.type) {
-		case DeckActionsType.LOAD_DECKS:
-			return [ ...action.payload.data ];
+		case ActionsType.LOAD_DECKS:
+			console.log(action.payload);
+			return [ ...action.data ];
 		default:
 			return state;
 	}
