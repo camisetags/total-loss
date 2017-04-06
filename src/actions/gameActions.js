@@ -1,15 +1,5 @@
-import ActionsType from './constants/gameActionsType';
+import * as ActionsType from './constants';
 import DeckService from '../services/deck';
-
-// export const startGame = (deckId, users) => {
-// 	let request = DeckService.get(deckId);
-
-	// return {
-	// 	type: ActionsType.START_GAME,
-	// 	payload: request,
-	// 	users
-	// };
-// };
 
 export const startGame = (deckId, users) => {
 	return (dispatch) => {
@@ -23,7 +13,7 @@ export const startGame = (deckId, users) => {
 				});
 			})
 			.catch((error) => {
-				console.log(error);
+				console.error(error);
 			});
 	};
 };

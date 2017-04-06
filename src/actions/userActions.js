@@ -1,12 +1,12 @@
-import UserActionsType from './constants/userActionsType';
+import * as ActionTypes from './constants';
 
-export const addUserToTheGame = (userName, playerNum) => {
+export const addUserToTheGame = (userName) => {
 	return {
-		type: UserActionsType.ADD_USER,
+		type: ActionTypes.ADD_USER,
 		user: {
-			id: playerNum,
 			name: userName,
-			target: false
+			target: false,
+			score: 0
 		}
 	}
 };

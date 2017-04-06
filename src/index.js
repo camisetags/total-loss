@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import reduxThunk from 'redux-thunk';
 
@@ -11,11 +11,11 @@ import SelectPlayers from './components/user/selectPlayers';
 import DeckSelect from './components/deck/selectDeck';
 import Game from './components/game/game';
 import GameOver from './components/game/gameOver';
-import requireUsers from './components/deck/requireUsers';
+import requireUsers from './components/filters/requireUsers';
 
 import reducers from './reducers';
 
-// import Async from './middlewares/async';
+import { loadState, saveState } from './utils/storage';
 
 import 'materialize-css/dist/css/materialize.css';
 import 'materialize-css/dist/js/materialize.js';
@@ -23,11 +23,12 @@ import 'font-awesome/css/font-awesome.css';
 import 'animate.css/animate.css';
 import './styles/style.css';
 
-// Async
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const initialState = loadState();
+const store = createStoreWithMiddleware(reducers, initialState);
+const history = syncHistoryWithStore(hashHistory, store);
 
-const store = createStoreWithMiddleware(reducers);
-const history = syncHistoryWithStore(browserHistory, store);
+store.subscribe(() => saveState(store.getState()));
 
 const documentElement = document.getElementById('app');
 

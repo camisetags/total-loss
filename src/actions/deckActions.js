@@ -1,12 +1,20 @@
 import DeckService from '../services/deck';
-import DeckActionsType from './constants/deckActionsType';
+import * as  ActionTyoes from './constants';
 
 export const fetchDecks = (users) => {
-	let request = DeckService.query();
-
-	return {
-		type: DeckActionsType.LOAD_DECKS,
-		payload: request,
-		users
+	return (dispatch) => {
+		console.log(`Chegou um pouco antes da requisição de fetch decks`);
+		DeckService.query()
+			.then((response) => {
+				console.log(`Processou requisição de decks`);
+				return dispatch({
+					type: ActionTyoes.LOAD_DECKS,
+					data: response.data,
+					users
+				})
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 };
