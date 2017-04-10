@@ -1,7 +1,7 @@
 {
     "name": "Total Loss",
     "short_name": "TotalLoss",
-    "start_url": ".",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#fff",
     "descroption": "An app for the drunk peopple!",
