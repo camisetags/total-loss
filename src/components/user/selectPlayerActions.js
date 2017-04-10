@@ -9,7 +9,7 @@ const SelectPlayersActions = (props) => (
 			Adicionar jogador
 		</button>
 		
-		<Link to="/select-deck" 
+		<Link to="/select-deck"
 			className="btn waves-effect col s12 l3 offset-l6 user-button">
 			Escolher deck
 		</Link>

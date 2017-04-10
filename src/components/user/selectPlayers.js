@@ -29,7 +29,8 @@ class SelectPlayers extends Component {
 		        </div>
 
 		        <div className="card-action">
-		        	<SelectPlayersActions handleDispatchUser={() => this.handleDispatchUser()} />
+		        	<SelectPlayersActions 
+								handleDispatchUser={() => this.handleDispatchUser()} />
 		        </div>
 		      </div>
 		    </div>
