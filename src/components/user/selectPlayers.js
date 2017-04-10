@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../../actions/userActions';
 import SelectPlayersActions from './selectPlayerActions';
 import BaseComponent from '../baseComponent';
+import UserList from './userList';
 
 class SelectPlayers extends BaseComponent {
 
@@ -17,27 +18,31 @@ class SelectPlayers extends BaseComponent {
 
 	render() {
 		return (
-			<div className="row animated fadeIn">
-		    <div className="col s12 m12 l12">
-		      <div className="card">
-		        <div className="card-content">
-		        	<input type="hidden" ref="playerNum" />
-		          <span className="card-title">Digite o nome do Jogador { this.props.users.length + 1 }</span>	
-							
-							<div className="input-field">
-			          <input id="player_name" type="text" ref="userName" className="validate" />
-			          <label htmlFor="player_name">Player Name</label>
-			        </div>
-		        </div>
+			<div>
+				<div className="row animated fadeIn">
+					<div className="col s12 m12 l12">
+						<div className="card">
+							<div className="card-content">
+								<input type="hidden" ref="playerNum" />
+								<span className="card-title">Adicionar Jogador { this.props.users.length + 1 }</span>	
+								
+								<div className="input-field">
+									<input id="player_name" type="text" ref="userName" className="validate" />
+									<label htmlFor="player_name">Nick do jogador</label>
+								</div>
+							</div>
 
-		        <div className="card-action">
-		        	<SelectPlayersActions 
-								handleDispatchUser={() => this.handleDispatchUser()} 
-								handleVibrate={() => this.handleVibrate()} />
-		        </div>
-		      </div>
-		    </div>
-		  </div>	
+							<div className="card-action">
+								<SelectPlayersActions 
+									handleDispatchUser={() => this.handleDispatchUser()} 
+									handleVibrate={() => this.handleVibrate()} />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<UserList users={this.props.users}/>
+			</div>
 		);
 	}
 }

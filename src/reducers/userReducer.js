@@ -12,6 +12,9 @@ export default function userReducer(state = [], action) {
 		
 		case ActionsType.PASS_USERS:
 			return [ ...action.users ];
+		
+		case ActionsType.CLEAR_ALL:
+			return [];
 
 		default:
 			return state;

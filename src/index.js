@@ -11,6 +11,7 @@ import SelectPlayers from './components/user/selectPlayers';
 import DeckSelect from './components/deck/selectDeck';
 import Game from './components/game/game';
 import GameOver from './components/game/gameOver';
+import StartScreen from './components/startScreen/start';
 import requireUsers from './components/filters/requireUsers';
 
 import reducers from './reducers';
@@ -21,7 +22,7 @@ import 'materialize-css/dist/css/materialize.css';
 import 'materialize-css/dist/js/materialize.js';
 import 'font-awesome/css/font-awesome.css';
 import 'animate.css/animate.css';
-import './styles/style.css';
+import './styles/style.styl';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const initialState = loadState();
@@ -36,7 +37,8 @@ const AppRoutes = () => (
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={App}>
-				<IndexRoute component={SelectPlayers} />
+				<IndexRoute component={StartScreen} />
+				<Route path="/select-players" component={SelectPlayers} />
 				<Route path="/select-deck" component={requireUsers(DeckSelect)} />
 				<Route path="/game" component={requireUsers(Game)} />
 				<Route path="/game-over/:username" component={requireUsers(GameOver)} />

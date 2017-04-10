@@ -20,7 +20,7 @@ class SelectDeck extends BaseComponent {
 	}
 
 	handleStartGame(deckId) {
-		this.handleStartGame();
+		this.handleVibrate();
 		this.props.startGame(
 			deckId,
 			this.props.users

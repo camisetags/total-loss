@@ -1,8 +1,31 @@
 {
     "name": "Total Loss",
-    "start_url": "./",
+    "short_name": "TotalLoss",
+    "start_url": ".",
     "display": "standalone",
+    "background_color": "#fff",
+    "descroption": "An app for the drunk peopple!",
     "icons": [
+        {
+            "src": "orange-beer-256.png",
+            "sizes":"48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "orange-beer-256.png",
+            "sizes":"72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "orange-beer-256.png",
+            "sizes":"96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "orange-beer-256.png",
+            "sizes":"128x128",
+            "type": "image/png"
+        },
         {
             "src": "orange-beer-256.png",
             "sizes":"256x256",
