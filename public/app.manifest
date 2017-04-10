@@ -4,7 +4,7 @@
     "start_url": "./",
     "display": "standalone",
     "background_color": "#fff",
-    "descroption": "An app for the drunk peopple!",
+    "description": "An app for the drunk peopple!",
     "icons": [
         {
             "src": "orange-beer-256.png",
