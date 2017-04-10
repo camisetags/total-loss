@@ -64,8 +64,9 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js && python manifest_creator.py",
+    "build": "node scripts/build.js && python manifest_creator.py && npm run git-production",
     "test": "node scripts/test.js --env=jsdom",
+    "git-production" : "cd build && git init && heroku git:remote -a total-loss", 
     "build-style": "stylus src/styles/style.styl -o src/styles/style.css"
   },
   "jest": {

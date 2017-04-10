@@ -17,9 +17,13 @@ class SelectPlayers extends BaseComponent {
 	}
 
 	render() {
+		const style = {
+			"marginTop": "-44px"
+		};
+		
 		return (
 			<div>
-				<div className="row animated fadeIn">
+				<div className="row animated fadeIn" style={style}>
 					<div className="col s12 m12 l12">
 						<div className="card">
 							<div className="card-content">
