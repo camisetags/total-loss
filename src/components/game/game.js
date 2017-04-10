@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions/gameActions';
 import Loading from '../loading';
 import GameCard from './gameCard';
 import UserScore from './userScore';
-import { browserHistory } from 'react-router';
+import BaseComponent from '../baseComponent';
 
-
-class Game extends Component {
+class Game extends BaseComponent {
 
 	componentWillMount() {
 		console.log('Props from Game compoenent ', this.props);
@@ -16,11 +15,12 @@ class Game extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		console.log('Props loaded ', this.props);
 		if (this.props.game.isWinner) {
-			browserHistory.push(`/game-over/${this.props.game.name}`);
+			window.location.hash = `/game-over/${this.props.game.name}`;
 		}
 	}
 
 	addPoint(amountToAdd) {
+		this.handleVibrate();
 		this.props.addPoint(
 			amountToAdd
 		)

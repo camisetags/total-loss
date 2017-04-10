@@ -9,8 +9,9 @@ const SelectPlayersActions = (props) => (
 			Adicionar jogador
 		</button>
 		
-		<Link to="/select-deck" 
-			className="btn waves-effect col s12 l3 offset-l6 user-button">
+		<Link to="/select-deck"
+			className="btn waves-effect col s12 l3 offset-l6 user-button"
+			onClick={() => props.handleVibrate()} >
 			Escolher deck
 		</Link>
 	</div>

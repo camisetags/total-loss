@@ -1,7 +1,7 @@
 import React from 'react';
 
 const textAlign = {
-  "text-align": "center"
+  "textAlign": "center"
 };
 
 const Loading = (props) => (

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const Deck = (props) => {
 	const animationDelay = {
-		"animation-delay": `${props.target/2}s`
+		"animationDelay": `${props.target/2}s`
 	};
 
 	return (

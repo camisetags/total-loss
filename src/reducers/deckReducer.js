@@ -5,6 +5,7 @@ export default function deckReducer(state = [], action) {
 		case ActionsType.LOAD_DECKS:
 			console.log(action.payload);
 			return [ ...action.data ];
+		
 		default:
 			return state;
 	}

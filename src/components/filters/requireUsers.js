@@ -9,7 +9,7 @@ export default function requireUsers(ComposedComponent) {
 
 		componentWillMount() {
 			if (!this.props.users || this.props.users.length < 2) {
-				this.context.router.push('/');
+				window.location.hash = '/';
 			}
 		}
 

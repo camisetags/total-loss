@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as DeckActions from '../../actions/deckActions';
 import * as GameActions from '../../actions/gameActions';
 import Deck from './deck';
 import Loading from '../loading';
+import BaseComponent from '../baseComponent';
 
-
-class SelectDeck extends Component {
+class SelectDeck extends BaseComponent {
 		
 	componentWillMount() {
-		this.props.fetchDecks();
+		if (this.props.decks.length === 0) {
+			this.props.fetchDecks();
+		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -18,6 +20,7 @@ class SelectDeck extends Component {
 	}
 
 	handleStartGame(deckId) {
+		this.handleVibrate();
 		this.props.startGame(
 			deckId,
 			this.props.users

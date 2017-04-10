@@ -19,3 +19,22 @@ export const saveState = (state) => {
 		console.log(`Error when trying to serialize the state: \n ${error}`);
 	}
 };
+
+export const clearUsersAndGame = () =>  {
+	baseStateClear('users');
+};
+
+export const clearDecks = () =>  {
+	baseStateClear('decks');
+};
+
+function baseStateClear(stateProp) {
+	try {
+		const state = loadState();
+		state[stateProp] = [];
+		state.game = {};
+		saveState(state);
+	} catch(error) {
+		console.log(`Error when trying to load the state: \n ${error}`);
+	}
+}
