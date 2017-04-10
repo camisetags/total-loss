@@ -7,7 +7,7 @@ export default function gameReducer(state={}, action) {
 			return {
 				...state,
 				deck: { 
-					...action.payload, 
+					title: action.payload.title, 
 					cards: shuffleObjArray(action.payload.cards) 
 				},
 				users: [ ...action.users ],
@@ -17,6 +17,9 @@ export default function gameReducer(state={}, action) {
 		
 		case ActionsType.ADD_POINT:
 			return { ...addUserPoint(state, action) };
+		
+		case ActionsType.CLEAR_ALL:
+			return {};
 
 		default:
 			return state;
