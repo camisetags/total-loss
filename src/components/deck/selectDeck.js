@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as DeckActions from '../../actions/deckActions';
 import * as GameActions from '../../actions/gameActions';
 import Deck from './deck';
 import Loading from '../loading';
+import BaseComponent from '../baseComponent';
 
-
-class SelectDeck extends Component {
+class SelectDeck extends BaseComponent {
 		
 	componentWillMount() {
 		if (this.props.decks.length === 0) {
@@ -20,6 +20,7 @@ class SelectDeck extends Component {
 	}
 
 	handleStartGame(deckId) {
+		this.handleStartGame();
 		this.props.startGame(
 			deckId,
 			this.props.users

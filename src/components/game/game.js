@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions/gameActions';
 import Loading from '../loading';
 import GameCard from './gameCard';
 import UserScore from './userScore';
+import BaseComponent from '../baseComponent';
 
-
-class Game extends Component {
+class Game extends BaseComponent {
 
 	componentWillMount() {
 		console.log('Props from Game compoenent ', this.props);
@@ -20,6 +20,7 @@ class Game extends Component {
 	}
 
 	addPoint(amountToAdd) {
+		this.handleVibrate();
 		this.props.addPoint(
 			amountToAdd
 		)

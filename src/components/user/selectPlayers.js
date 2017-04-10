@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as Actions from '../../actions/userActions';
 import SelectPlayersActions from './selectPlayerActions';
+import BaseComponent from '../baseComponent';
 
-class SelectPlayers extends Component {
+class SelectPlayers extends BaseComponent {
 
 	handleDispatchUser() {
+		this.handleVibrate();
 		this.props.addUserToTheGame(
 			this.refs.userName.value
 		);
@@ -30,7 +32,8 @@ class SelectPlayers extends Component {
 
 		        <div className="card-action">
 		        	<SelectPlayersActions 
-								handleDispatchUser={() => this.handleDispatchUser()} />
+								handleDispatchUser={() => this.handleDispatchUser()} 
+								handleVibrate={() => this.handleVibrate()} />
 		        </div>
 		      </div>
 		    </div>
