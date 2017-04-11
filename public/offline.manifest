@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+static/js/bundle.js
+archives.js
+serviceWorkerRegister.js
+serviceWorker.js
+app.manifest
+favicon.ico
+
+NETWORK:
+*
