@@ -8,12 +8,7 @@ import BaseComponent from '../baseComponent';
 
 class Game extends BaseComponent {
 
-	componentWillMount() {
-		console.log('Props from Game compoenent ', this.props);
-	}
-
 	componentDidUpdate(prevProps, prevState) {
-		console.log('Props loaded ', this.props);
 		if (this.props.game.isWinner) {
 			window.location.hash = `/game-over/${this.props.game.name}`;
 		}

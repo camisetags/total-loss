@@ -5,7 +5,6 @@ export const startGame = (deckId, users) => {
 	return (dispatch) => {
 		DeckService.get(deckId)
 			.then((response) => {
-				console.log(`Response of deck service ${response}`);
 				dispatch({
 					type: ActionsType.START_GAME,
 					payload: response,
@@ -19,7 +18,6 @@ export const startGame = (deckId, users) => {
 };
 
 export const addPoint = (amountToAdd) => {
-	console.log('Amount to add ======> ', amountToAdd);
 	return {
 		type: ActionsType.ADD_POINT,
 		amountToAdd

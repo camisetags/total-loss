@@ -34,7 +34,6 @@ function addUserPoint(state, action) {
 	state.userIndex = checkIfUserIndexExists(state);
 	state.users[state.userIndex].target = true;
 	state = checkIfCardsIndexExists(state);
-	console.log('Game object ====> ', state);
 	return state;
 }
 

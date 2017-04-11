@@ -9,7 +9,6 @@ import BaseComponent from '../baseComponent';
 class GameOver extends BaseComponent {
 
   componentDidMount() {
-    console.log(`Game and users data were deleted!`);
     this.props.clearAllStates();
     clearUsersAndGame();
   }

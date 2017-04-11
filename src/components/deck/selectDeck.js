@@ -15,10 +15,6 @@ class SelectDeck extends BaseComponent {
 		}
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		console.log('Component dom updated ', this.props.decks);
-	}
-
 	handleStartGame(deckId) {
 		this.handleVibrate();
 		this.props.startGame(
