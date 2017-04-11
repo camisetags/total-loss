@@ -31,8 +31,8 @@ class SelectPlayers extends BaseComponent {
 								<span className="card-title">Adicionar Jogador { this.props.users.length + 1 }</span>	
 								
 								<div className="input-field">
-									<input id="player_name" type="text" ref="userName" className="validate" />
-									<label htmlFor="player_name">Nick do jogador</label>
+									<input id="player_name" type="text" ref="userName" required="" />
+									<label htmlFor="player_name" data-error="Digite um nome válido">Nick do jogador</label>
 								</div>
 							</div>
 
