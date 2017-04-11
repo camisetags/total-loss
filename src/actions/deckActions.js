@@ -1,14 +1,13 @@
 import DeckService from '../services/deck';
 import * as  ActionTyoes from './constants';
 
-export const fetchDecks = (users) => {
+export const fetchDecks = () => {
 	return (dispatch) => {
 		DeckService.query()
 			.then((response) => {
 				return dispatch({
 					type: ActionTyoes.LOAD_DECKS,
-					data: response.data,
-					users
+					data: response.data
 				})
 			})
 			.catch((error) => {

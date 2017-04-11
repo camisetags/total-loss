@@ -23,12 +23,3 @@ export const addPoint = (amountToAdd) => {
 		amountToAdd
 	};
 };
-
-export const subtractPoint = (userIndex, amountToSubtract, game) => {
-	return {
-		type: ActionsType.SUBTRACT_POINT,
-		userIndex,
-		amountToSubtract,
-		game
-	};
-};

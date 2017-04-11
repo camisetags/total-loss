@@ -24,7 +24,7 @@ class Game extends BaseComponent {
 	render() {
 		return (
 			<div>	
-				{ typeof this.props.game.deck === 'undefined' ? ( 
+				{ !this.props.deck ? (
 						<Loading />
 				) : (
 					<div>
