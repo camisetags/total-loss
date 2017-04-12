@@ -7,7 +7,7 @@ export const startGame = (deckId, users) => {
 			.then((response) => {
 				dispatch({
 					type: ActionsType.START_GAME,
-					payload: response,
+					deck: response,
 					users
 				});
 			})

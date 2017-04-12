@@ -6,7 +6,7 @@ import SelectPlayersActions from './selectPlayerActions';
 import BaseComponent from '../baseComponent';
 import UserList from './userList';
 
-class SelectPlayers extends BaseComponent {
+export class SelectPlayers extends BaseComponent {
 
 	handleDispatchUser() {
 		this.handleVibrate();

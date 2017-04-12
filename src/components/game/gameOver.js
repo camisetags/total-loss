@@ -6,7 +6,7 @@ import * as GameActions from '../../actions/gameActions';
 import * as CommomActions from '../../actions/commonActions';
 import BaseComponent from '../baseComponent';
 
-class GameOver extends BaseComponent {
+export class GameOver extends BaseComponent {
 
   componentDidMount() {
     this.props.clearAllStates();

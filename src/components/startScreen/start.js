@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import BaseComponent from '../baseComponent';
 import drunkStickman from '../../images/drunkStickman.png';
 
-class StartScreen extends BaseComponent {
+export class StartScreen extends BaseComponent {
   render() {
     const textAlign = {
       "textAlign": "center"

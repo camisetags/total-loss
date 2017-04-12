@@ -7,8 +7,8 @@ export default function gameReducer(state={}, action) {
 			return {
 				...state,
 				deck: { 
-					title: action.payload.title, 
-					cards: shuffleObjArray(action.payload.cards) 
+					title: action.deck.title, 
+					cards: shuffleObjArray(action.deck.cards) 
 				},
 				users: [ ...action.users ],
 				cardIndex: 0,

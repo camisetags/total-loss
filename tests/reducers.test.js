@@ -81,8 +81,8 @@ describe('Reducers', () => {
 
       const action = {
         type: Types.START_GAME,
-        payload: deck,
-        users: game.users
+        users: game.users,
+        deck
       };
 
       expect(gameReducer(undefined, action)).toEqual(game);

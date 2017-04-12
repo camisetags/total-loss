@@ -6,7 +6,7 @@ import GameCard from './gameCard';
 import UserScore from './userScore';
 import BaseComponent from '../baseComponent';
 
-class Game extends BaseComponent {
+export class Game extends BaseComponent {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props.game.isWinner) {
@@ -24,7 +24,7 @@ class Game extends BaseComponent {
 	render() {
 		return (
 			<div>	
-				{ !this.props.deck ? (
+				{ !this.props.game.deck ? (
 						<Loading />
 				) : (
 					<div>
