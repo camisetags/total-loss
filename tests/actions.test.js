@@ -39,12 +39,12 @@ describe('Actions', () => {
   });
   
   // TODO: Implement async actions after the server is finished
-  // describe('Deck', () => {
+  describe('Deck', () => {
   //   beforeEach(() => {
   //     nock.cleanAll();
   //   });
     
-  //   it('should create a LOAD_DECKS action when fetching is done', () => {
+    it('should create a LOAD_DECKS action when fetching is done', () => {
   //     const serviceResponse = { 
   //       body: { 
   //         decks: [{
@@ -70,8 +70,8 @@ describe('Actions', () => {
 
   //     const store = mockStore({ decks: [] });
 
-  //   });
-  // });
+    });
+  });
 
   describe('Game', () => {
     it('should create a ADD_POINT action', () => {

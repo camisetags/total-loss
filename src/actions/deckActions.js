@@ -7,7 +7,7 @@ export const fetchDecks = () => {
 			.then((response) => {
 				return dispatch({
 					type: ActionTyoes.LOAD_DECKS,
-					data: response.data
+					decks: response.data
 				})
 			})
 			.catch((error) => {
