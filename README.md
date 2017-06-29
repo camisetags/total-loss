@@ -1,4 +1,6 @@
-## Total Loss
+# Total Loss
+
+This is a game to play with your drunk friends at the time of drinking.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
