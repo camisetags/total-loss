@@ -1,9 +1,8 @@
+import React from 'react';
+import { render } from 'react-dom';
+
+import Home from './pages/Home';
+
 import './style.scss';
 
-class Testing {
-  constructor() {
-    console.log('New version of the app!');
-  }
-}
-
-new Testing();
+render(<Home />, document.getElementById('app'));
