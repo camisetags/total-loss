@@ -8,7 +8,7 @@ module.exports = merge(common, {
 
   devServer: {
     port: 4000,
-    contentBase: './dist',
+    contentBase: './src',
     historyApiFallback: true,
     hot: true,
   },

@@ -1,11 +1,12 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/app/index.js',
+    app: './src/app/index.jsx',
   },
 
   output: {
@@ -13,16 +14,22 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
   },
 
+  resolve: {
+    modules: [join(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx', '.css', '.scss'],
+  },
+
   module: {
     rules: [
       {
-        test: /\.jsx/,
-        use: ['eslint-loader', 'babel-loader'],
+        enforce: 'pre',
+        test: /\.(js|jsx)/,
+        use: ['eslint-loader'],
         exclude: /node_modules/,
       },
       {
-        test: /\.js/,
-        use: ['eslint-loader', 'babel-loader'],
+        test: /\.(js|jsx)/,
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
@@ -53,5 +60,6 @@ module.exports = {
       path: resolve(__dirname, 'build'),
       filename: 'index.html',
     }),
+    new FlowBabelWebpackPlugin(),
   ],
 };
