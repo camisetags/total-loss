@@ -1,4 +1,5 @@
 const { resolve, join } = require('path');
+const { NoEmitOnErrorsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -51,6 +52,7 @@ module.exports = {
   },
 
   plugins: [
+    new NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
       filename: '[name].[hash:8].css',
     }),
