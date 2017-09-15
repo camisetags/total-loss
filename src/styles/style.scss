@@ -1,3 +1,9 @@
-body {
-    font-family: Arial, Helvetica, sans-serif
-}
+// MIXINS
+@import 'mixins/breakpoints';
+// CONFIGS
+@import 'config/vars/deviceSizes';
+// @import 'config/resets';
+// COMMON
+@import 'common';
+//COMPONENTS
+@import 'card';

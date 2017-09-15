@@ -1,0 +1,32 @@
+@mixin breakpoint($point) {
+    @if $point==phone {
+        @media (min-width: $phone) {
+            @content;
+        }
+    }
+    @else if $point==untilTablet {
+        @media (max-width: $tablet - 1) {
+            @content;
+        }
+    }
+    @else if $point==tablet {
+        @media (min-width: $tablet) {
+            @content;
+        }
+    }
+    @else if $point==untilDesktop {
+        @media (max-width: $desktop - 1) {
+            @content;
+        }
+    }
+    @else if $point==desktop {
+        @media (min-width: $desktop) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $point) {
+            @content;
+        }
+    }
+}

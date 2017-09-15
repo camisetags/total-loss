@@ -7,11 +7,11 @@ import Home from './core/pages/Home';
 
 const App = () => (
   <Provider store={store}>
-    <div>
+    <main className="container">
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
-    </div>
+    </main>
   </Provider>
 );
 

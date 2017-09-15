@@ -11,7 +11,7 @@ module.exports = merge(common, {
     contentBase: './src',
     historyApiFallback: true,
     overlay: true,
-    hot: true,
+    // hot: true,
   },
 
   plugins: [

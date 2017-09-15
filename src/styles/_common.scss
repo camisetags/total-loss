@@ -1,0 +1,10 @@
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.container {
+    @include breakpoint(desktop) {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
