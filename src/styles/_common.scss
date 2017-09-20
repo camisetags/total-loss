@@ -1,10 +1,44 @@
 body {
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.center {
+    max-width: 50%;
 }
 
 .container {
     @include breakpoint(desktop) {
-        margin-left: 80px;
-        margin-right: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 24em;
+    }
+}
+
+.main-title {
+    font-size: 70px;
+    text-align: center;
+    margin: 17px;
+}
+
+.center-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: #4C7FAF;
+    border: none;
+    color: white;
+    padding: 9px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    &.big {
+        padding: 18px 33px;
+        font-size: 22px;
     }
 }

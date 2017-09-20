@@ -3,7 +3,6 @@ const { NoEmitOnErrorsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -62,6 +61,5 @@ module.exports = {
       path: resolve(__dirname, 'build'),
       filename: 'index.html',
     }),
-    new FlowBabelWebpackPlugin(),
   ],
 };

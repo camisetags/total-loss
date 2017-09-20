@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "react"],
+  "plugins": ["react"],
   "extends": ["airbnb"],
   "env": {
     "browser": true,
