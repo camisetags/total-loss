@@ -1,13 +1,9 @@
 import * as types from './constants';
+import { switchCase } from '../helpers/utils';
 
 const initialState = [];
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case types.ADD_USER:
-      return [...state, action.user];
-
-    default:
-      return state;
-  }
-};
+export default (state = initialState, action) =>
+  switchCase(action.type)({
+    [types.ADD_USER]: () => [...state, action.user],
+  })(() => state);
