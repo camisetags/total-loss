@@ -1,9 +1,8 @@
-// @flow
-import * as deckTypes from './constants';
-import DeckServices from './services';
+import * as deckTypes from './actionTypes';
+import DeckService from './services';
 
 export const getDeckList = () => async (dispatch) => {
-  const response = await DeckServices.getList();
+  const response = await DeckService.getList();
 
   dispatch({
     type: deckTypes.LIST_DECKS,

@@ -1,4 +1,4 @@
-import * as types from './constants';
+import * as types from './actionTypes';
 import { switchCase } from '../helpers/utils';
 
 const initialState = [];
