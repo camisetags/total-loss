@@ -1,0 +1,12 @@
+.card {
+  overflow: hidden; // position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px; // margin: 0 auto;
+  width: 512px;
+  border: 1px solid #d3d3d3; // border-radius: 0px;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  .card-center {
+    margin: auto;
+  }
+}
