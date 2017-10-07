@@ -119,6 +119,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "uuid": "^3.1.0",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
