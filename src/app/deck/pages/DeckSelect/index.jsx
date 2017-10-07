@@ -24,7 +24,7 @@ class DeckSelect extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  decks: state.deck.deckList,
+  decks: state.deck.list,
 });
 
 const mapDispatchToProps = dispatch => ({

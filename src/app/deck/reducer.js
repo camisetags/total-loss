@@ -2,14 +2,19 @@ import { switchCase } from '../helpers/utils';
 import * as types from './actionTypes';
 
 const initialState = {
-  deckList: [],
+  list: [
+    {
+      title: '',
+      description: '',
+    },
+  ],
 };
 
 const deckReducer = (state = initialState, action) =>
   switchCase(action.type)({
     [types.LIST_DECKS]: () => ({
       ...state,
-      deckList: action.data.results,
+      list: action.data,
     }),
   })(() => state);
 
