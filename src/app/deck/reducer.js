@@ -14,7 +14,7 @@ const deckReducer = (state = initialState, action) =>
   switchCase(action.type)({
     [types.LIST_DECKS]: () => ({
       ...state,
-      list: action.data,
+      list: [...action.data],
     }),
   })(() => state);
 
