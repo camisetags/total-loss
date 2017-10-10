@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 const initialState = {
   list: [
     {
-      title: '',
+      name: '',
       description: '',
     },
   ],
@@ -16,6 +16,6 @@ const deckReducer = (state = initialState, action) =>
       ...state,
       list: [...action.data],
     }),
-  })(() => state);
+  })(() => ({ ...state }));
 
 export default deckReducer;

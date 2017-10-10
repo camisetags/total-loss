@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 const Card = props => (
   <div className="card card-center">
-    <h1>{props.content.title}</h1>
+    <h1>{props.content.name}</h1>
     <p>{props.content.description}</p>
   </div>
 );
 
 Card.propTypes = {
   content: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
 };
