@@ -4,8 +4,16 @@
   right: 0;
   top: 50px; // margin: 0 auto;
   width: 512px;
-  border: 1px solid #d3d3d3; // border-radius: 0px;
-  box-shadow: 1px 1px 1px #aaaaaa;
+  border: 1px solid #f3eded; // border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  
+  &:hover {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15), 0 9px 21px rgba(0, 0, 0, 0.22);
+  }
+
   .card-center {
     margin: auto;
   }
