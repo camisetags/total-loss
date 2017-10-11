@@ -1,12 +1,11 @@
 import * as deckTypes from './actionTypes';
 import deckApi from './api';
 
-export const getDeckList = () => (dispatch) => {
-  deckApi.getList().then((response) => {
-    dispatch({
-      type: deckTypes.LIST_DECKS,
-      data: response.data.results,
-    });
+export const getDeckList = () => async (dispatch) => {
+  const response = await deckApi.getList();
+  dispatch({
+    type: deckTypes.LIST_DECKS,
+    data: response.data.results,
   });
 };
 
