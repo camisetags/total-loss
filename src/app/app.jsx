@@ -2,10 +2,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import store from './core/store';
+import store from './data/store';
 
-import Home from './core/pages/Home';
-import DeckSelect from './deck/pages/DeckSelect';
+import Home from './pages/Home';
+import DeckSelect from './pages/deck/DeckSelect';
 
 const App = () => (
   <Provider store={store}>

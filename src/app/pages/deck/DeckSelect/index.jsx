@@ -3,7 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getDeckList } from '../../actions';
+import { getDeckList } from '../../../data/deck/actions';
+
 import DeckSelectComponent from './component';
 
 class DeckSelect extends React.Component {

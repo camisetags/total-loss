@@ -1,8 +1,8 @@
 import * as deckTypes from './actionTypes';
-import DeckService from './services';
+import DeckApi from './api';
 
 export const getDeckList = () => (dispatch) => {
-  DeckService.getList().then((response) => {
+  DeckApi.getList().then((response) => {
     dispatch({
       type: deckTypes.LIST_DECKS,
       data: response.data.results,

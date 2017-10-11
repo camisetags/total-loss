@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
-import Card from '../../../core/components/Card';
+import Card from '../../../components/Card';
 
 const DeckSelect = props => (
   <div>
