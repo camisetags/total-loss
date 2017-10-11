@@ -1,12 +1,24 @@
 import * as deckTypes from './actionTypes';
-import DeckApi from './api';
+import deckApi from './api';
 
 export const getDeckList = () => (dispatch) => {
-  DeckApi.getList().then((response) => {
+  deckApi.getList().then((response) => {
     dispatch({
       type: deckTypes.LIST_DECKS,
       data: response.data.results,
     });
+  });
+};
+
+export const selectDeck = deckId => async (dispatch) => {
+  const response = await deckApi.getById(deckId);
+  dispatch({
+    type: deckTypes.SELECT_DECK,
+    data: {
+      name: response.data.name,
+      description: response.data.description,
+      cards: [...response.data.cards],
+    },
   });
 };
 
