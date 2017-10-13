@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import deckFilter from './data/filters/deckFilter';
+import requireDecks from './data/filters/requireDecks';
 
 import store from './data/store';
 
@@ -16,7 +16,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/deck-select" component={DeckSelect} />
-        <Route exact path="/players-select" component={deckFilter(PlayersSelect)} />
+        <Route exact path="/players-select" component={requireDecks(PlayersSelect)} />
         <Route component={DeckSelect} />
       </Switch>
     </main>
