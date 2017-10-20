@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 
 import { getDeckList } from '../../actions';
 import DeckSelectComponent from './component';
+import Loading from '../../../Loading';
 
 class DeckSelect extends React.Component {
   static get propTypes() {
     return {
       fetchDecks: PropTypes.func.isRequired,
       decks: PropTypes.arrayOf(PropTypes.object).isRequired,
+      deck: PropTypes.object,
     };
   }
 
@@ -19,7 +21,10 @@ class DeckSelect extends React.Component {
   }
 
   render() {
-    return <DeckSelectComponent {...this.props} />;
+    if (this.props.deck.list) {
+      return <DeckSelectComponent {...this.props} />;
+    }
+    return <Loading />;
   }
 }
 
@@ -32,5 +37,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getDeckList());
   },
 });
+
+DeckSelect.defaultProps = {
+  deck: {},
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckSelect);
