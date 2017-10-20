@@ -10,9 +10,8 @@ type DeckSelectProps = {
   selectDeck: Function,
 };
 
-const DeckSelect = (props: DeckSelectProps) => {
+const DeckSelect = (props: DeckSelectProps): React.Node => {
   const selectDeck = props.selectDeck;
-
   return (
     <div>
       <h1 className="main-title">Escolha um dos Decks</h1>

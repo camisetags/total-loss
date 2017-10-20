@@ -1,7 +1,9 @@
+// @flow
 import * as deckTypes from './actionTypes';
 import deckApi from './api';
+import type { Dispatch } from '../types';
 
-export const getDeckList = () => async (dispatch) => {
+export const getDeckList = () => async (dispatch: Dispatch): any => {
   const response = await deckApi.getList();
   dispatch({
     type: deckTypes.LIST_DECKS,
@@ -9,7 +11,7 @@ export const getDeckList = () => async (dispatch) => {
   });
 };
 
-export const selectDeck = deckId => async (dispatch) => {
+export const selectDeck = (deckId: number) => async (dispatch: Dispatch): any => {
   const response = await deckApi.getById(deckId);
   dispatch({
     type: deckTypes.SELECT_DECK,
