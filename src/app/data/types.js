@@ -5,4 +5,4 @@ export type Action = {
   data: Object,
 };
 
-export type Dispatch = (action: Action) => void;
+export type Dispatch = (action: Action) => Promise<Action>;
