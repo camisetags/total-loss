@@ -13,6 +13,7 @@ class DeckSelect extends React.Component {
       fetchDecks: PropTypes.func.isRequired,
       fetchDeck: PropTypes.func.isRequired,
       decks: PropTypes.arrayOf(PropTypes.object).isRequired,
+      deck: PropTypes.object,
     };
   }
 
@@ -41,5 +42,9 @@ const mapDispatchToProps = dispatch => ({
   fetchDecks: () => dispatch(getDeckList()),
   fetchDeck: deckId => dispatch(selectDeck(deckId)),
 });
+
+DeckSelect.defaultProps = {
+  deck: {},
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckSelect);
