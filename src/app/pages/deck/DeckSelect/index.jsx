@@ -1,22 +1,20 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { getDeckList, selectDeck } from '../../../data/deck/actions';
 
 import DeckSelectComponent from './component';
 import Loading from '../../../components/Loading';
+import type { Deck } from '../../../data/deck/state';
 
-class DeckSelect extends React.Component {
-  static get propTypes() {
-    return {
-      fetchDecks: PropTypes.func.isRequired,
-      fetchDeck: PropTypes.func.isRequired,
-      decks: PropTypes.arrayOf(PropTypes.object).isRequired,
-      deck: PropTypes.object,
-    };
-  }
+type DeckSelectProps = {
+  fetchDecks: Function,
+  fetchDeck: Function,
+  decks: Array<Deck>,
+};
 
+class DeckSelect extends React.Component<DeckSelectProps> {
   componentDidMount() {
     this.props.fetchDecks();
   }
@@ -42,9 +40,5 @@ const mapDispatchToProps = dispatch => ({
   fetchDecks: () => dispatch(getDeckList()),
   fetchDeck: deckId => dispatch(selectDeck(deckId)),
 });
-
-DeckSelect.defaultProps = {
-  deck: {},
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckSelect);
