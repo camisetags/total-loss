@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import v4 from 'uuid';
 
 import Card from '../../../components/Card';
 
@@ -18,7 +17,7 @@ const DeckSelect = (props: DeckSelectProps): React.Node => {
       <div className="cards-container">
         {props.decks &&
           props.decks.map(deck => (
-            <Card key={v4()} content={deck}>
+            <Card key={`deck-${deck.id}`} content={deck}>
               <Link
                 to="players-select"
                 onClick={() => selectDeck(deck.id)}

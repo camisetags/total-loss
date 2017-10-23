@@ -12,12 +12,13 @@ const flowPlugin = new FlowWebpackPlugin({
   flowPath: require.main.require('flow-bin'),
   flowArgs: ['--color=always'],
   verbose: false,
-  callback: result => {},
+  callback: (result) => {},
 });
 
 module.exports = {
   entry: {
     app: './src/app/index.jsx',
+    babel: 'babel-polyfill',
   },
 
   output: {
@@ -40,7 +41,13 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2017'],
+          },
+        },
+        include: [resolve(__dirname, './src/app')],
         exclude: /node_modules/,
       },
       {

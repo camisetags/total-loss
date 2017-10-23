@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import requireDecks from './data/filters/requireDecks';
+import requireDecks from './data/middlewares/requireDecks';
 
 import store from './data/store';
 
