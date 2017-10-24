@@ -19,7 +19,6 @@ module.exports = {
   entry: {
     babelPolyfill: 'babel-polyfill',
     app: './src/app/index.jsx',
-    babel: 'babel-polyfill',
   },
 
   output: {
@@ -44,9 +43,6 @@ module.exports = {
         test: /\.(js|jsx)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['es2017'],
-          },
         },
         include: [resolve(__dirname, './src/app')],
         exclude: /node_modules/,
