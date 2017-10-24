@@ -28,6 +28,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        API_ENDPOINT: JSON.stringify('http://total-loss-api.herokuapp.com'),
       },
     }),
   ],
