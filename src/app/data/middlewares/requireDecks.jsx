@@ -1,8 +1,8 @@
+/* eslint no-console: 0 */
 // @flow
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import type { Connector } from 'react-redux';
 import type { DeckState } from '../deck/state';
 import type { RootState } from '../types';
 
@@ -16,8 +16,8 @@ const DeckFilter = (NextComponent: any): any => {
   };
 
   const mapStateToProps: Object = (state: RootState) => ({
-    selectedDeck: state.deck.selected,
-    deckList: state.deck.list,
+    selected: state.deck.selected,
+    list: state.deck.list,
   });
 
   return connect(mapStateToProps)(Filter);
