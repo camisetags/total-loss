@@ -28,7 +28,7 @@ body {
 }
 
 .button {
-    background-color: #4C7FAF;
+    background-color: #4c7faf;
     border: none;
     color: white;
     padding: 9px 12px;
@@ -45,4 +45,17 @@ body {
         padding: 7px 22px;
         font-size: 16px;
     }
+}
+
+.inputfield {
+    border-style: solid;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    height: 10px;
+    font-size: 20px;
+    padding: 20px;
+    outline: none;
 }

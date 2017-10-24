@@ -1,13 +1,13 @@
 // @flow
 
 export type DeckState = {
-  selected?: {
+  selected: {
     name: string,
     description: string,
     cards: Array<Object>,
   },
 
-  list?: [
+  list: [
     {
       name: string,
       description: string,
