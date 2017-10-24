@@ -1,29 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* eslint no-console: 0 */
+// @flow
+import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import type { DeckState } from '../deck/state';
+import type { RootState } from '../types';
 
-const DeckFilter = (NextComponent) => {
-  const Filter = (props) => {
-    if (props.deckList.length <= 1 && props.selectedDeck.cards.length === 0) {
+const DeckFilter = (NextComponent: any): any => {
+  const Filter = (props: DeckState): React.Element<*> => {
+    if (props.list.length <= 1 && props.selected.cards.length === 0) {
       return <Redirect to="deck-select" />;
     }
 
     return <NextComponent {...props} />;
   };
 
-  Filter.propTypes = {
-    deckList: PropTypes.arrayOf(PropTypes.object).isRequired,
-    selectedDeck: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      cards: PropTypes.arrayOf(PropTypes.object).isRequired,
-    }).isRequired,
-  };
-
-  const mapStateToProps = state => ({
-    selectedDeck: state.deck.selected,
-    deckList: state.deck.list,
+  const mapStateToProps: Object = (state: RootState) => ({
+    selected: state.deck.selected,
+    list: state.deck.list,
   });
 
   return connect(mapStateToProps)(Filter);

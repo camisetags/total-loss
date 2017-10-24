@@ -1,5 +1,5 @@
 {
-  "presets": ["es2017", "flow", "react"],
+  "presets": ["env", "flow", "react"],
   "plugins": [
     "syntax-flow",
     "transform-flow-strip-types",

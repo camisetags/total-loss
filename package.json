@@ -20,8 +20,8 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.7",
@@ -51,13 +51,11 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "uuid": "^3.1.0"
+    "redux-thunk": "^2.2.0"
   }
 }
