@@ -27,6 +27,8 @@
     h1 {
         font-size: 20px;
         margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.16);
     }
     &:after {
         content: "🍻";
