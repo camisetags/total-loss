@@ -12,7 +12,7 @@ const flowPlugin = new FlowWebpackPlugin({
   flowPath: require.main.require('flow-bin'),
   flowArgs: ['--color=always'],
   verbose: false,
-  callback: result => {},
+  callback: (result) => {},
 });
 
 module.exports = {
@@ -41,7 +41,10 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+        },
+        include: [resolve(__dirname, './src/app')],
         exclude: /node_modules/,
       },
       {
