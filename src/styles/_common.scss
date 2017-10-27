@@ -31,6 +31,7 @@ body {
     justify-content: center;
     min-height: 24em;
   }
+  
 }
 
 .main-title {
@@ -108,7 +109,6 @@ body {
 .cards-container {
   display: flex;
   margin: 0 auto;
-  flex-wrap: wrap;
   width: 80%;
   position: relative;
 }
