@@ -12,7 +12,7 @@ const flowPlugin = new FlowWebpackPlugin({
   flowPath: require.main.require('flow-bin'),
   flowArgs: ['--color=always'],
   verbose: false,
-  callback: (result) => {},
+  callback: result => {},
 });
 
 module.exports = {
@@ -60,7 +60,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        // use: ['file-loader'],
+        loader: 'file-loader?context=src/images&name=images/[path][hash:8].[ext]',
+        exclude: /node_modules/,
+        include: resolve(__dirname, './src/images'),
       },
     ],
   },

@@ -1,0 +1,21 @@
+.players-container {
+    margin-top: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.side-button {
+    float: right;
+    margin: 5px;
+    display: flex;
+    order: 1;
+    flex-direction: column;
+}
+
+.user-cards {
+    float: left;
+    order: 2;
+    display: flex;
+    justify-content: flex-start;
+}
