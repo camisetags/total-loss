@@ -1,116 +1,146 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  background: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/2128757/580/580/m1/fpnw/wm0/1612.m10.i308.n017.s.c12.187577804-white-bathroom-tiles-ceramic-kitchen-floor-tiles-seamless-background-.jpg?1484420648&s=325942245b81159215a8d861813aedd7");
-  &:after {
-    content: "";
-    background-image: url("https://www.americanstandard-us.com/-/media/sites/asus/images/products/toilets/cadet-3-right-height-elongated-toilet-3378ab128st/3378ab128st-cadet-3-right-height-elongated-toilet.png");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 70%);
-    filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.2));
-    z-index: -1;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: url("/images/bath-background.jpg");
+    &:after {
+        content: "";
+        background-image: url("/images/toilet-seat.png");
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 70%);
+        filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.2));
+        z-index: -1;
+    }
 }
 
 .center {
-  max-width: 50%;
+    max-width: 50%;
 }
 
 .container {
-  @include breakpoint(desktop) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 24em;
-  }
-
+    @include breakpoint(desktop) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 24em;
+    }
 }
 
 .main-title {
-  font-size: 120px;
-  text-align: center;
-  margin: 17px;
-  animation: titleBobble 3s alternate infinite ease-in-out;
-  font-family: "Pacifico", cursive;
-  filter: blur(5px);
+    font-size: 120px;
+    text-align: center;
+    margin: 17px;
+    animation: titleBobble 3s alternate infinite ease-in-out;
+    font-family: "Pacifico", cursive;
+    filter: blur(5px);
 }
 
-.center-grid > a > button {
-  animation: buttonBobble 7s alternate infinite ease-in-out;
+.center-grid>a>button {
+    animation: buttonBobble 7s alternate infinite ease-in-out;
 }
 
 @keyframes buttonBobble {
-  from {
-    transform: translate(-4px, -11px) rotate(-15deg) scale(1);
-    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.14);
-  }
-  to {
-    transform: translate(53px, 4px) rotate(15deg) scale(1.2);
-    box-shadow: 16px 16px 7px rgba(0, 0, 0, 0.14);
-  }
+    from {
+        transform: translate(-4px, -11px) rotate(-15deg) scale(1);
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.14);
+    }
+    to {
+        transform: translate(53px, 4px) rotate(15deg) scale(1.2);
+        box-shadow: 16px 16px 7px rgba(0, 0, 0, 0.14);
+    }
 }
 
 @keyframes titleBobble {
-  from {
-    transform: translate(-53px, 19px) rotate(15deg);
-  }
-  to {
-    transform: translate(4px, -3px) rotate(-15deg);
-  }
+    from {
+        transform: translate(-53px, 19px) rotate(15deg);
+    }
+    to {
+        transform: translate(4px, -3px) rotate(-15deg);
+    }
 }
 
 .center-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
-  background-color: #4c7faf;
-  border: none;
-  color: white;
-  padding: 9px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 3px;
-  &.big {
-    padding: 18px 33px;
-    font-size: 22px;
-  }
-  &.small {
-    padding: 7px 22px;
+    background-color: #4c7faf;
+    border: none;
+    color: white;
+    padding: 9px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
-  }
+    border-radius: 3px;
+    &.big {
+        padding: 18px 33px;
+        font-size: 22px;
+    }
+    &.mid {
+        padding: 12px 27px;
+        font-size: 16px;
+    }
+    &.small {
+        padding: 7px 22px;
+        font-size: 16px;
+    }
 }
 
 .inputfield {
-  border-style: solid;
-  border: none;
-  border-bottom: 2px solid black;
-  width: 100%;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  height: 10px;
-  font-size: 20px;
-  padding: 20px;
-  outline: none;
+    border-style: solid;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    height: 10px;
+    font-size: 20px;
+    padding: 20px;
+    outline: none;
 }
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  width: 80%;
-  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+}
+
+.arrow-icon {
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
