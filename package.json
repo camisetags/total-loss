@@ -7,6 +7,7 @@
     "build": "webpack --config webpack.prod.js",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "test": "jest --config jest.config.js --verbose",
+    "test:coverage": "jest --config jest.config.js --verbose --coverage",
     "test:update-snapshots": "jest --config jest.config.js -u"
   },
   "main": "index.js",
