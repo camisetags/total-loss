@@ -1,4 +1,3 @@
-/* eslint no-console: 0 */
 // @flow
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
@@ -19,6 +18,10 @@ const DeckFilter = (NextComponent: any): any => {
     selected: state.deck.selected,
     list: state.deck.list,
   });
+
+  if (process.env.NODE_ENV === 'test') {
+    return Filter;
+  }
 
   return connect(mapStateToProps)(Filter);
 };

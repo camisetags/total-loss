@@ -1,4 +1,12 @@
 module.exports = {
   API_ENDPOINT: 'http://total-loss-api.herokuapp.com',
-  NODE_ENV: 'development',
+  vendorChunks: [
+    'axios',
+    'react',
+    'react-dom',
+    'react-redux',
+    'react-router-dom',
+    'redux',
+    'redux-thunk',
+  ],
 };

@@ -1,10 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
-    background: url("/images/bath-background.jpg");
+    background: url("../images/bath-background.jpg");
     &:after {
         content: "";
-        background-image: url("/images/toilet-seat.png");
+        background-image: url("../images/toilet-seat.png");
         background-repeat: no-repeat;
         background-position: bottom center;
         background-size: contain;

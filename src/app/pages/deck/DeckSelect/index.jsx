@@ -15,12 +15,12 @@ type DeckSelectProps = {
   decks: Array<Deck>,
 };
 
-class DeckSelect extends React.Component<DeckSelectProps> {
+export class DeckSelect extends React.Component<DeckSelectProps> {
   componentDidMount() {
     this.props.fetchDecks();
   }
 
-  selectDeck(deckId) {
+  selectDeck(deckId: number) {
     this.props.fetchDeck(deckId);
   }
 
