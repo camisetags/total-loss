@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders correctly 1`] = `
+<div
+  className="card card-center"
+>
+  <h1>
+    Testing card
+  </h1>
+  <p>
+    Some testing card
+  </p>
+  <hr />
+  <div>
+     Testing node 
+  </div>
+</div>
+`;

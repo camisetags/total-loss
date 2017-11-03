@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 const common = require('./webpack.common.js');
+const configs = require('./configs');
 
 module.exports = merge(common, {
   output: {
@@ -27,8 +28,8 @@ module.exports = merge(common, {
 
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-        API_ENDPOINT: JSON.stringify('http://total-loss-api.herokuapp.com'),
+        NODE_ENV: JSON.stringify(configs.NODE_ENV),
+        API_ENDPOINT: JSON.stringify(configs.API_ENDPOINT),
       },
     }),
   ],

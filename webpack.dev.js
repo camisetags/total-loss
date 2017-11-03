@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 const common = require('./webpack.common');
+const configs = require('./configs');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -18,8 +19,8 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-        API_ENDPOINT: JSON.stringify('http://total-loss-api.herokuapp.com'),
+        NODE_ENV: JSON.stringify(configs.NODE_ENV),
+        API_ENDPOINT: JSON.stringify(configs.API_ENDPOINT),
       },
     }),
   ],
