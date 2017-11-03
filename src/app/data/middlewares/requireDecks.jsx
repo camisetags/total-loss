@@ -19,10 +19,12 @@ const DeckFilter = (NextComponent: any): any => {
     list: state.deck.list,
   });
 
+  /* istanbul ignore next */
   if (process.env.NODE_ENV === 'test') {
     return Filter;
   }
 
+  /* istanbul ignore next */
   return connect(mapStateToProps)(Filter);
 };
 
