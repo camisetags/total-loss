@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import DeckPage from '../../../../src/app/pages/deck/DeckSelect/component';
 
 describe('DeckList page', () => {
@@ -21,13 +21,15 @@ describe('DeckList page', () => {
     },
   ];
   const App = () => (
-    <Switch history={history}>
-      <Route path="/" component={() => <DeckPage decks={deckList} selectDeck={() => {}} />} />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={() => <DeckPage decks={deckList} selectDeck={() => {}} />} />
+      </Switch>
+    </BrowserRouter>
   );
 
   it('renders DeckList page component', () => {
-    const rendered = renderer.create();
-    expect(rendered.toJSON()).toMatchSnapshot(<App />);
+    const rendered = renderer.create(<App />);
+    expect(rendered.toJSON()).toMatchSnapshot();
   });
 });
