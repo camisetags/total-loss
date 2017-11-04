@@ -1,13 +1,6 @@
 // @flow
 import * as React from 'react';
-
-type CardProps = {
-  content: {
-    name: string,
-    description: string,
-  },
-  children: React.Node,
-};
+import type { CardProps } from './props';
 
 const Card = (props: CardProps): React.Element<*> => (
   <div className="card card-center">

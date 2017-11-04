@@ -3,11 +3,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from '../../../components/Card';
-
-type DeckSelectProps = {
-  decks: Object[],
-  selectDeck: Function,
-};
+import type { DeckSelectProps } from './props';
 
 const DeckSelect = (props: DeckSelectProps): React.Node => {
   const selectDeck = props.selectDeck;

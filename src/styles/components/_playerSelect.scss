@@ -1,21 +1,32 @@
 .players-container {
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    @include breakpoint(desktop) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
-.side-button {
-    margin: 5px;
+.side-buttons {
     display: flex;
-    order: 1;
-    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    @include breakpoint(desktop) {
+        flex-direction: column;
+    }
 }
 
 .users-cards {
-    order: 2;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
+    @include breakpoint(desktop) {
+        align-items: center;
+        width: 57%;
+        height: 202px;
+    }
+}
+
+.button-margin {
+    margin: 5px;
 }
