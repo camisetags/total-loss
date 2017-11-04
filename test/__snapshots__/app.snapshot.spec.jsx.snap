@@ -4,7 +4,9 @@ exports[`App wrapper should redirect to deck-select 1`] = `
 <main
   className="container"
 >
-  <div>
+  <div
+    className="loading"
+  >
      Carregando... 
   </div>
 </main>

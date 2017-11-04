@@ -42,6 +42,7 @@ const mapStateToProps = (state: RootState): Object => ({
   decks: state.deck.list,
 });
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch: Function): Object => ({
   fetchDecks: () => dispatch(getDeckList()),
   fetchDeck: deckId => dispatch(selectDeck(deckId)),
