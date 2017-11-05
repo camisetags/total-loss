@@ -1,6 +1,10 @@
 language: node_js
 node_js:
  - "node"
-after_success:
- - yarn install
- - yarn test
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+  - yarn build
