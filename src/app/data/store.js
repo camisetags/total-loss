@@ -3,6 +3,7 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './rootReducer';
 
+/* istanbul ignore next */
 const store = createStore(
   reducers,
   compose(

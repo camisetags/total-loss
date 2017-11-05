@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App wrapper should redirect to deck-select 1`] = `
+<main
+  className="container"
+>
+  <div
+    className="loading"
+  >
+     Carregando... 
+  </div>
+</main>
+`;
+
+exports[`App wrapper should render app wrapper component 1`] = `
+<main
+  className="container"
+>
+  <div>
+    <h1
+      className="main-title"
+    >
+       Me drunk 
+    </h1>
+    <div
+      className="center-grid"
+    >
+      <a
+        href="deck-select"
+        onClick={[Function]}
+      >
+        <button
+          className="button big"
+        >
+          Jogar!
+        </button>
+      </a>
+    </div>
+  </div>
+</main>
+`;

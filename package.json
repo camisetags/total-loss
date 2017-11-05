@@ -6,9 +6,9 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "test": "jest --config jest.config.js --verbose",
-    "test:coverage": "jest --config jest.config.js --verbose --coverage",
-    "test:update-snapshots": "jest --config jest.config.js -u"
+    "test": "jest --config jest.config.js --env=jsdom",
+    "test:coverage": "jest --config jest.config.js --coverage --env=jsdom",
+    "test:update-snapshots": "jest --config jest.config.js -u --env=jsdom"
   },
   "main": "index.js",
   "repository": "git@github.com:gabrielSeixas/total-loss.git",
@@ -28,6 +28,8 @@
     "clean-webpack-plugin": "^0.1.16",
     "compression-webpack-plugin": "^1.0.1",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.3",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-loader": "^1.9.0",
@@ -52,7 +54,6 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "url-loader": "^0.6.2",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.7.1",
     "webpack-merge": "^4.1.0"

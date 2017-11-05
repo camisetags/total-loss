@@ -6,16 +6,10 @@ import { getDeckList, selectDeck } from '../../../data/deck/actions';
 
 import DeckSelectComponent from './component';
 import Loading from '../../../components/Loading';
-import type { Deck } from '../../../data/deck/state';
 import type { RootState } from '../../../data/types';
+import type { DeckSelectContainerProps } from './props';
 
-type DeckSelectProps = {
-  fetchDecks: Function,
-  fetchDeck: Function,
-  decks: Array<Deck>,
-};
-
-export class DeckSelect extends React.Component<DeckSelectProps> {
+export class DeckSelect extends React.Component<DeckSelectContainerProps> {
   componentDidMount() {
     this.props.fetchDecks();
   }
@@ -42,6 +36,7 @@ const mapStateToProps = (state: RootState): Object => ({
   decks: state.deck.list,
 });
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch: Function): Object => ({
   fetchDecks: () => dispatch(getDeckList()),
   fetchDeck: deckId => dispatch(selectDeck(deckId)),
