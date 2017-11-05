@@ -1,4 +1,5 @@
 # Total Loss
+[![Build Status](https://travis-ci.org/gabrielSeixas/total-loss.svg?branch=develop)](https://travis-ci.org/gabrielSeixas/total-loss)
 
 YAAAAAAY FELLAS! Ready for a Total Loss?
 
