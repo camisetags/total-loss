@@ -19,4 +19,4 @@ This game is a work in progress.
 
 ## To run tests
 
-run command `yarn test`
+Run command `yarn test`
