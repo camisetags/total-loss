@@ -16,3 +16,7 @@ This game is a work in progress.
 * Start the server with `yarn start`
 * Wait until its ready
 * Get a beer
+
+## To run tests
+
+run command `yarn test`
