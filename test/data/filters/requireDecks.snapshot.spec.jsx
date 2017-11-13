@@ -2,7 +2,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import requireDecks from '../../../src/app/data/middlewares/requireDecks';
+import requireDecks from '../../../src/app/data/filters/requireDecks';
 
 describe('requireDecks middleware', () => {
   const simpleCompoenent = props => (

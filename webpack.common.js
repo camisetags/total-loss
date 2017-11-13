@@ -3,18 +3,7 @@ const { NoEmitOnErrorsPlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
 const configs = require('./configs');
-
-const flowPlugin = new FlowWebpackPlugin({
-  failOnError: false,
-  failOnErrorWatch: false,
-  printFlowOutput: true,
-  flowPath: require.main.require('flow-bin'),
-  flowArgs: ['--color=always'],
-  verbose: false,
-  callback: result => {},
-});
 
 const extractSCSS = new ExtractTextPlugin({
   filename: '[name]-[hash:8].css',
@@ -100,7 +89,6 @@ module.exports = {
       path: resolve(__dirname, 'build'),
       filename: 'index.html',
     }),
-    flowPlugin,
     extractSCSS,
   ],
 };

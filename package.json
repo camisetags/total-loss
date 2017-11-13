@@ -5,7 +5,6 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "test": "jest --config jest.config.js --env=jsdom",
     "test:coverage": "jest --config jest.config.js --coverage --env=jsdom",
     "test:update-snapshots": "jest --config jest.config.js -u --env=jsdom"
@@ -17,10 +16,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "7",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
@@ -30,17 +29,14 @@
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.3",
-    "eslint": "^4.6.1",
+    "eslint": "^4.11.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-flowtype": "^2.39.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
-    "flow-bin": "^0.57.3",
-    "flow-webpack-plugin": "^1.1.0",
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.2",
     "jest": "^21.2.1",
@@ -60,11 +56,13 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-orm": "^0.9.4",
     "redux-thunk": "^2.2.0"
   }
 }

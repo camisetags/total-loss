@@ -1,24 +1,19 @@
-// @flow
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { arrayOf, object, func } from 'prop-types';
 
 import Card from '../../../components/Card';
-import type { DeckSelectProps } from './props';
 
-const DeckSelect = (props: DeckSelectProps): React.Node => {
-  const selectDeck = props.selectDeck;
+const DeckSelect = ({ decks, selectDeck }) => {
+  const selDeck = selectDeck;
   return (
     <div>
       <h1 className="main-title">Escolha um dos Decks</h1>
       <div className="cards-container">
-        {props.decks &&
-          props.decks.map(deck => (
+        {decks &&
+          decks.map(deck => (
             <Card key={`deck-${deck.id}`} content={deck}>
-              <Link
-                to="players-select"
-                onClick={() => selectDeck(deck.id)}
-                className="button small"
-              >
+              <Link to="players-select" onClick={() => selDeck(deck.id)} className="button small">
                 Escolher
               </Link>
             </Card>
@@ -26,6 +21,11 @@ const DeckSelect = (props: DeckSelectProps): React.Node => {
       </div>
     </div>
   );
+};
+
+DeckSelect.propTypes = {
+  decks: arrayOf(object).isRequired,
+  selectDeck: func.isRequired,
 };
 
 export default DeckSelect;

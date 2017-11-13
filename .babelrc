@@ -1,8 +1,7 @@
 {
-  "presets": ["env", "flow", "react"],
+  "presets": ["env", "react"],
   "plugins": [
-    "syntax-flow",
-    "transform-flow-strip-types",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    ["transform-class-properties", { "spec": true }]
   ]
 }

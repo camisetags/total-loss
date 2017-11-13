@@ -1,10 +1,7 @@
-// @flow
 import { switchCase } from '../../helpers/utils';
 import * as types from './actionTypes';
-import type { Action } from '../types';
-import type { DeckState } from './state';
 
-const initialState: DeckState = {
+const initialState = {
   selected: {
     name: '',
     description: '',
@@ -19,7 +16,7 @@ const initialState: DeckState = {
   ],
 };
 
-const deckReducer = (state: DeckState = initialState, action: Action): DeckState =>
+const deckReducer = (state = initialState, action) =>
   switchCase(action.type)({
     [types.LIST_DECKS]: () => ({
       ...state,
