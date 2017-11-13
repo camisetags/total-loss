@@ -1,12 +1,10 @@
-// @flow
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import type { DeckState } from '../deck/state';
-import type { RootState } from '../types';
+import { object, arrayOf, shape } from 'prop-types';
 
-const DeckFilter = (NextComponent: any): any => {
-  const Filter = (props: DeckState): React.Element<*> => {
+const DeckFilter = (NextComponent) => {
+  const Filter = (props) => {
     if (props.list.length <= 1 && props.selected.cards.length === 0) {
       return <Redirect to="deck-select" />;
     }
@@ -14,7 +12,14 @@ const DeckFilter = (NextComponent: any): any => {
     return <NextComponent {...props} />;
   };
 
-  const mapStateToProps: Object = (state: RootState) => ({
+  Filter.propTypes = {
+    selected: shape({
+      cards: arrayOf(object).isRequired,
+    }).isRequired,
+    list: arrayOf(object).isRequired,
+  };
+
+  const mapStateToProps = state => ({
     selected: state.deck.selected,
     list: state.deck.list,
   });

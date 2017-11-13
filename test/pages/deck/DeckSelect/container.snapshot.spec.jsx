@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Enzyme, { render, mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter, Link } from 'react-router-dom';
 
-import { DeckSelect as DeckSelectContainer } from '../../../../src/app/pages/deck/DeckSelect';
+import { DeckSelect as DeckSelectContainer } from '../../../../src/app/pages/deck/DeckSelect/container';
 
 describe('DeckSelect Container', () => {
   const deckInitialState = [

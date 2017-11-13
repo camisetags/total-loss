@@ -3,10 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './data/store';
-import requireDecks from './data/middlewares/requireDecks';
+import requireDecks from './data/filters/requireDecks';
 
 import Home from './pages/Home';
-import DeckSelect from './pages/deck/DeckSelect';
+import DeckSelect from './pages/deck/DeckSelect/container';
 import PlayersSelect from './pages/player/PlayerSelect';
 
 const App = () => (
