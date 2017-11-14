@@ -1,36 +1,24 @@
 import { switchCase } from '../../helpers/utils';
 import * as types from './actionTypes';
+import models from '../models';
 
-const initialState = {
-  selected: {
-    name: '',
-    description: '',
-    cards: [],
-  },
+const deckReducer = (state, action) => {
+  const sess = models.orm.session(state);
+  const { Deck } = sess;
 
-  list: [
-    {
-      name: '',
-      description: '',
+  return switchCase(action.type)({
+    [types.LIST_DECKS]: () => {
+      action.data.forEach((deck) => {
+        Deck.create(deck);
+      });
+      return sess.state.Deck;
     },
-  ],
+
+    [types.SELECT_DECK]: () => {
+      Deck.withId(action.data.id).update(action.data);
+      return sess.state.Deck;
+    },
+  })(() => sess.state.Deck);
 };
-
-const deckReducer = (state = initialState, action) =>
-  switchCase(action.type)({
-    [types.LIST_DECKS]: () => ({
-      ...state,
-      list: [...action.data],
-    }),
-
-    [types.SELECT_DECK]: () => ({
-      ...state,
-      selected: {
-        name: action.data.name,
-        description: action.data.description,
-        cards: [...action.data.cards],
-      },
-    }),
-  })(() => ({ ...state }));
 
 export default deckReducer;

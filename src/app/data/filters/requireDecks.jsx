@@ -5,7 +5,7 @@ import { object, arrayOf, shape } from 'prop-types';
 
 const DeckFilter = (NextComponent) => {
   const Filter = (props) => {
-    if (props.list.length <= 1 && props.selected.cards.length === 0) {
+    if (props.list.length === 0) {
       return <Redirect to="deck-select" />;
     }
 
@@ -20,8 +20,7 @@ const DeckFilter = (NextComponent) => {
   };
 
   const mapStateToProps = state => ({
-    selected: state.deck.selected,
-    list: state.deck.list,
+    list: state.deck.items,
   });
 
   /* istanbul ignore next */

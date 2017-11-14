@@ -32,7 +32,7 @@ export class DeckSelect extends Component {
 }
 
 const mapStateToProps = state => ({
-  decks: state.deck.list,
+  decks: state.deck.items,
 });
 
 /* istanbul ignore next */

@@ -14,6 +14,7 @@ export const selectDeck = deckId => async (dispatch) => {
   dispatch({
     type: deckTypes.SELECT_DECK,
     data: {
+      id: deckId,
       name: response.data.name,
       description: response.data.description,
       cards: [...response.data.cards],

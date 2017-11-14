@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import user from './player/reducer';
+import { create } from 'redux-orm';
 import deck from './deck/reducer';
+import user from './player/reducer';
 
 const rootReducer = combineReducers({
-  user,
   deck,
+  user,
 });
 
 export default rootReducer;
