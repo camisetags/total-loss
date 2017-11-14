@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, arrayOf, object } from 'prop-types';
 
+import { objToArray } from '../../../helpers/utils';
 import { getDeckList, selectDeck } from '../../../data/deck/actions';
 
 import DeckSelectComponent from './component';
@@ -32,7 +33,7 @@ export class DeckSelect extends Component {
 }
 
 const mapStateToProps = state => ({
-  decks: state.deck.list,
+  decks: objToArray(state.deck),
 });
 
 /* istanbul ignore next */
