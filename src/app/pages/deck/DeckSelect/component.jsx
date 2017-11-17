@@ -4,6 +4,11 @@ import { arrayOf, object, func } from 'prop-types';
 
 import Card from '../../../components/Card';
 
+const propTypes = {
+  decks: arrayOf(object).isRequired,
+  selectDeck: func.isRequired,
+};
+
 const DeckSelect = ({ decks, selectDeck }) => {
   const selDeck = selectDeck;
   return (
@@ -23,9 +28,6 @@ const DeckSelect = ({ decks, selectDeck }) => {
   );
 };
 
-DeckSelect.propTypes = {
-  decks: arrayOf(object).isRequired,
-  selectDeck: func.isRequired,
-};
+DeckSelect.propTypes = propTypes;
 
 export default DeckSelect;
