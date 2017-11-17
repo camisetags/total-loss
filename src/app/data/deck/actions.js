@@ -1,4 +1,3 @@
-/* eslint no-console: 0 */
 import { normalize } from 'normalizr';
 import { deckSchema } from './schemas';
 import * as deckTypes from './actionTypes';
