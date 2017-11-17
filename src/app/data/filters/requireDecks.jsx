@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { object, arrayOf, shape } from 'prop-types';
+import { object, arrayOf } from 'prop-types';
+// import * as deckRepository from '../deck/repository';
 
 const DeckFilter = (NextComponent) => {
   const Filter = (props) => {
-    if (props.list.length <= 1 && props.selected.cards.length === 0) {
+    if (props.decks.length <= 1) {
       return <Redirect to="deck-select" />;
     }
 
@@ -13,15 +14,11 @@ const DeckFilter = (NextComponent) => {
   };
 
   Filter.propTypes = {
-    selected: shape({
-      cards: arrayOf(object).isRequired,
-    }).isRequired,
-    list: arrayOf(object).isRequired,
+    decks: arrayOf(object).isRequired,
   };
 
   const mapStateToProps = state => ({
-    selected: state.deck.selected,
-    list: state.deck.list,
+    decks: Object.values(state.deck),
   });
 
   /* istanbul ignore next */
