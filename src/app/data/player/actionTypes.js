@@ -1,4 +1,3 @@
-export const ADD_USER = 'ADD_USER';
-export const LIST_USER = 'LIST_USER';
-
-export default ADD_USER;
+// @flow
+export const ADD_USER: string = 'ADD_USER';
+export const LIST_USER_RANDOM: string = 'LIST_USER_RANDOM';
