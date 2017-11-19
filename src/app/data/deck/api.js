@@ -1,10 +1,8 @@
-import axios from 'axios';
+import requestHandler from '../requestHandler';
 
-axios.defaults.baseURL = process.env.API_ENDPOINT || '';
-
-const DeckServices = {
-  getList: () => axios.get('/api/deck/'),
-  getById: id => axios.get(`/api/deck/${id}`),
+const DeckApi = {
+  getList: () => requestHandler.get('/api/deck/'),
+  getById: id => requestHandler.get(`/api/deck/${id}`),
 };
 
-export default DeckServices;
+export default DeckApi;

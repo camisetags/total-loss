@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './data/store';
-import requireDecks from './data/filters/requireDecks';
+import requireDecks from './hoc/requireDecks';
 
 import Home from './pages/Home';
 import DeckSelect from './pages/deck/DeckSelect/container';

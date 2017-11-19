@@ -1,5 +1,7 @@
+const { API_ENDPOINT = 'http://total-loss-api.herokuapp.com' } = process.env;
+
 module.exports = {
-  API_ENDPOINT: 'http://total-loss-api.herokuapp.com',
+  API_ENDPOINT,
   vendorChunks: [
     'axios',
     'react',
