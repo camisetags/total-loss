@@ -1,22 +1,25 @@
 import { normalize } from 'normalizr';
+import { Deck } from './types';
 import { deckSchema } from './schemas';
-import * as deckTypes from './actionTypes';
+import { LIST_DECKS, SELECT_DECK, Actions as DeckActions } from './actionTypes';
 import deckApi from './api';
 
-export const getDeckList = () => async (dispatch) => {
+import { Dispatch } from 'redux';
+
+export const getDeckList = () => async (dispatch: Dispatch<DeckActions>) => {
   const response = await deckApi.getList();
-  const deckList = response.data.results.map(deck => ({
+  const deckList = response.data.results.map((deck: Deck) => ({
     ...deck,
     selected: false,
   }));
 
   dispatch({
-    type: deckTypes.LIST_DECKS,
+    type: LIST_DECKS,
     data: normalize(deckList, [deckSchema]).entities.decks,
   });
 };
 
-export const selectDeck = deckId => async (dispatch) => {
+export const selectDeck = (deckId: number) => async (dispatch: Dispatch<DeckActions>) => {
   const response = await deckApi.getById(deckId);
   const deck = {
     id: deckId,
@@ -27,7 +30,7 @@ export const selectDeck = deckId => async (dispatch) => {
   };
 
   dispatch({
-    type: deckTypes.SELECT_DECK,
+    type: SELECT_DECK,
     data: normalize(deck, deckSchema).entities.decks,
   });
 };

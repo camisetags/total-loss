@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { object, arrayOf } from 'prop-types';
+import { RootState } from '../data/types';
 // import * as deckRepository from '../deck/repository';
 
-const DeckFilter = (NextComponent) => {
-  const Filter = (props) => {
+type FilterProps = {
+  decks: object[];
+};
+
+const DeckFilter = (NextComponent: React.ReactType) => {
+  const Filter = (props: FilterProps) => {
     if (props.decks.length <= 1) {
       return <Redirect to="deck-select" />;
     }
@@ -13,11 +17,7 @@ const DeckFilter = (NextComponent) => {
     return <NextComponent {...props} />;
   };
 
-  Filter.propTypes = {
-    decks: arrayOf(object).isRequired,
-  };
-
-  const mapStateToProps = state => ({
+  const mapStateToProps = (state: any) => ({
     decks: Object.values(state.deck),
   });
 

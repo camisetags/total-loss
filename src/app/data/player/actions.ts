@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
 
-export const addUser = name => name;
+export const addUser = (name: any) => name;
 
 export default addUser;

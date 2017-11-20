@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { arrayOf, object, func } from 'prop-types';
 
+import { Deck } from '../../../data/deck/types';
 import Card from '../../../components/Card';
 
-const propTypes = {
-  decks: arrayOf(object).isRequired,
-  selectDeck: func.isRequired,
+type DeckSelectProps = {
+  decks: Array<Deck>,
+  selectDeck: Function
 };
 
-const DeckSelect = ({ decks, selectDeck }) => {
+const DeckSelect = ({ decks, selectDeck }: DeckSelectProps) => {
   const selDeck = selectDeck;
   return (
     <div>
@@ -27,7 +27,5 @@ const DeckSelect = ({ decks, selectDeck }) => {
     </div>
   );
 };
-
-DeckSelect.propTypes = propTypes;
 
 export default DeckSelect;
