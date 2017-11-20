@@ -14,7 +14,7 @@ module.exports = {
   entry: {
     vendor: [...configs.vendorChunks],
     babelPolyfill: 'babel-polyfill',
-    app: './src/app/index.jsx',
+    app: './src/app/index.tsx',
   },
 
   output: {
@@ -32,11 +32,20 @@ module.exports = {
     alias: {
       assets: resolve(__dirname, 'src/images'),
     },
-    extensions: ['.js', '.jsx', '.css', '.scss'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
   },
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+      },
+      {
+        enforce: 'pre',
+        test: /\.(js|jsx)?$/,
+        loader: 'source-map-loader',
+      },
       {
         enforce: 'pre',
         test: /\.(js|jsx)/,
