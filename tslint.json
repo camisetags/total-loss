@@ -1,5 +1,9 @@
 {
   "extends": ["tslint-config-airbnb"],
+  "env": {
+    "jest": true,
+    "node": true
+  },
   "rules": {
     "variable-name": false,
     "import-name": false

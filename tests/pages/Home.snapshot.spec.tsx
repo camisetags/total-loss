@@ -1,5 +1,5 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import HomePage from '../../src/app/pages/Home';
 
@@ -10,6 +10,6 @@ describe('Home Page', () => {
         <HomePage />
       </MemoryRouter>,
     );
-    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
   });
 });

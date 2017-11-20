@@ -1,29 +1,32 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter, Link } from 'react-router-dom';
 
-import { DeckSelect as DeckSelectContainer } from '../../../../src/app/pages/deck/DeckSelect/container';
+import { 
+  DeckSelect as DeckSelectContainer, 
+} from '../../../../src/app/pages/deck/DeckSelect/container';
+import { Deck, DeckState } from '../../../../src/app/data/deck/types';
 
 describe('DeckSelect Container', () => {
-  const deckInitialState = [
-    {
+  const deckInitialState = {
+    1: {
       id: 1,
       name: 'Test deck 1',
       description: 'Description deck one',
     },
-    {
+    2: {
       id: 2,
       name: 'Test deck 2',
       description: 'Description deck on 2',
     },
-    {
+    3: {
       id: 3,
       name: 'Test deck 3',
       description: 'Description deck 3',
     },
-  ];
+  };
 
   const mockFetchDecks = jest.fn();
   const mockFetchDeck = jest.fn();
@@ -40,7 +43,7 @@ describe('DeckSelect Container', () => {
   it('should render loading component', () => {
     const wrapper = mount(
       <DeckSelectContainer
-        decks={[deckInitialState[0]]}
+        decks={[deckInitialState[0] as Deck]}
         fetchDeck={() => mockFetchDeck()}
         fetchDecks={() => mockFetchDecks()}
       />,
@@ -54,7 +57,7 @@ describe('DeckSelect Container', () => {
     const rendered = renderer.create(
       <MemoryRouter>
         <DeckSelectContainer
-          decks={deckInitialState}
+          decks={(Object as any).values(deckInitialState) as Deck[]}
           fetchDeck={() => mockFetchDeck()}
           fetchDecks={() => mockFetchDecks()}
         />
@@ -83,7 +86,7 @@ describe('DeckSelect Container', () => {
     const wrapper = mount(
       <MemoryRouter>
         <DeckSelectContainer
-          decks={deckInitialState}
+          decks={(Object as any).values(deckInitialState) as Deck[]}
           fetchDeck={() => mockFetchDeck()}
           fetchDecks={() => mockFetchDecks()}
         />

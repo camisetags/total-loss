@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeckList page renders DeckList page component 1`] = `
+exports[`DeckSelect page renders DeckList page component 1`] = `
 <div>
   <h1
     className="main-title"

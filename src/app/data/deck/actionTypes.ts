@@ -6,10 +6,10 @@ export const SELECT_DECK = 'SELECT_DECK';
 export type Actions = {
   LIST_DECKS: {
     type: typeof LIST_DECKS;
-    data: Deck;
+    data: any;
   };
   SELECT_DECK: {
     type: typeof SELECT_DECK;
-    data: Deck;
+    data: any;
   };
 };

@@ -1,8 +1,8 @@
 /* eslint react/prop-types:0 */
-import React from 'react';
+import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import requireDecks from '../../../src/app/data/filters/requireDecks';
+import requireDecks from '../../src/app/hoc/requireDecks';
 
 describe('requireDecks middleware', () => {
   const simpleCompoenent = props => (

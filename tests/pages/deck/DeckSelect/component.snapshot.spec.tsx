@@ -1,11 +1,12 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import { MemoryRouter, Link } from 'react-router-dom';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as Enzyme from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 import DeckPageComponent from '../../../../src/app/pages/deck/DeckSelect/component';
+import { Deck } from '../../../../src/app/data/deck/types';
 
-describe('DeckList page', () => {
+describe('DeckSelect page', () => {
   const deckList = [
     {
       id: 1,
@@ -29,13 +30,14 @@ describe('DeckList page', () => {
   });
 
   it('renders DeckList page component', () => {
+    const mockFunc = jest.fn();
     const rendered = renderer.create(
       <MemoryRouter>
-        <DeckPageComponent decks={deckList} selectDeck={() => mockFunc()} />
+        <DeckPageComponent decks={deckList as Deck[]} selectDeck={() => mockFunc()} />
       </MemoryRouter>,
     );
 
-    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
   });
 
   it('should call selectDeck event', () => {
@@ -43,7 +45,7 @@ describe('DeckList page', () => {
 
     const pageWrapper = mount(
       <MemoryRouter>
-        <DeckPageComponent decks={deckList} selectDeck={deckId => mockFunc(deckId)} />
+        <DeckPageComponent decks={deckList as Deck[]} selectDeck={deckId => mockFunc(deckId)} />
       </MemoryRouter>,
     );
 

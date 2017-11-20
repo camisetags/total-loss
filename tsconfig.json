@@ -3,12 +3,13 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "es6",
     "target": "es5",
     "jsx": "react",
     "lib": ["es2017", "dom"],
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": ["jest", "node"]
   },
   "include": ["./src/**/*"]
 }
