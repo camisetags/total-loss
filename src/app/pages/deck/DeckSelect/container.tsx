@@ -20,21 +20,21 @@ export class DeckSelect extends React.Component<DeckSelectProps, {}> {
     this.props.fetchDecks();
   }
 
-  selectDeck = (deckId: number) => {
+  selectDeck(deckId: number) {
     this.props.fetchDeck(deckId);
-  };
+  }
 
   render() {
     if (this.props.decks.length === 1) {
       return <Loading />;
     }
 
-    return <DeckSelectComponent decks={this.props.decks} selectDeck={this.selectDeck} />;
+    return <DeckSelectComponent decks={this.props.decks} selectDeck={() => this.selectDeck} />;
   }
 }
 
 const mapStateToProps = (state: RootState) => ({
-  decks: (Object as any).values(state.deck),
+  decks: Object.values(state.deck),
 });
 
 /* istanbul ignore next */

@@ -5,8 +5,8 @@ import { Deck } from '../../../data/deck/types';
 import Card from '../../../components/Card';
 
 type DeckSelectProps = {
-  decks: Array<Deck>,
-  selectDeck: Function
+  decks: Deck[],
+  selectDeck: Function,
 };
 
 const DeckSelect = ({ decks, selectDeck }: DeckSelectProps) => {
