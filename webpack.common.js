@@ -38,19 +38,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-      },
-      {
         enforce: 'pre',
         test: /\.(js|jsx)?$/,
         loader: 'source-map-loader',
       },
       {
         enforce: 'pre',
+        test: /\.(ts|tsx)/,
+        use: ['tslint-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        enforce: 'pre',
         test: /\.(js|jsx)/,
         use: ['eslint-loader'],
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        loader: 'awesome-typescript-loader',
       },
       {
         test: /\.(js|jsx)/,
