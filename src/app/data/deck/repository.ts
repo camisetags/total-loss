@@ -1,4 +1,3 @@
-import sift, { SiftQuery, ExternalQuery } from 'sift';
 import { Deck } from './types';
 import store from '../store';
 
