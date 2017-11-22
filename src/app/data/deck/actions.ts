@@ -1,12 +1,12 @@
 import { normalize } from 'normalizr';
 import { Deck } from './types';
 import { deckSchema } from './schemas';
-import { LIST_DECKS, SELECT_DECK, Actions as DeckActions } from './actionTypes';
+import * as deckActions from './actionTypes';
 import deckApi from './api';
 
 import { Dispatch } from 'redux';
 
-export const getDeckList = () => async (dispatch: Dispatch<DeckActions>) => {
+export const getDeckList = () => async (dispatch: Dispatch<deckActions.Actions>) => {
   const response = await deckApi.getList();
   const deckList = response.data.results.map((deck: Deck) => ({
     ...deck,
@@ -14,12 +14,12 @@ export const getDeckList = () => async (dispatch: Dispatch<DeckActions>) => {
   }));
 
   dispatch({
-    type: LIST_DECKS,
+    type: deckActions.LIST_DECKS,
     data: normalize(deckList, [deckSchema]).entities.decks,
   });
 };
 
-export const selectDeck = (deckId: number) => async (dispatch: Dispatch<DeckActions>) => {
+export const selectDeck = (deckId: number) => async (dispatch: Dispatch<deckActions.Actions>) => {
   const response = await deckApi.getById(deckId);
   const deck = {
     id: deckId,
@@ -30,7 +30,7 @@ export const selectDeck = (deckId: number) => async (dispatch: Dispatch<DeckActi
   };
 
   dispatch({
-    type: SELECT_DECK,
+    type: deckActions.SELECT_DECK,
     data: normalize(deck, deckSchema).entities.decks,
   });
 };

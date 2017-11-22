@@ -1,15 +1,19 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import * as axios from 'axios';
-import MockAdapter = require('axios-mock-adapter');
+import MockAdapter from 'axios-mock-adapter';
+
+import requestHandler from '../../../src/app/data/requestHandler';
 import * as DeckActions from '../../../src/app/data/deck/actions';
 import * as DeckTypes from '../../../src/app/data/deck/actionTypes';
+import { DeckState, Deck } from '../../../src/app/data/deck/types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+const mockAdapter = new MockAdapter(requestHandler);
+
 describe('Deck actions', () => {
-  const deckInitialState = {
+  const deckInitialState: DeckState = {
     0: {
       id: 0,
       name: '',
@@ -19,38 +23,50 @@ describe('Deck actions', () => {
     },
   };
 
-  const deckObject: any = {
+  const deckObject: Deck = {
     id: 4,
+    selected: false,
     name: 'O ditador!',
     description: 'Faça essas prendas fingindo ser um ditador.',
     cards: [],
   };
 
-  let store;
-
   beforeEach(() => {
-    store = mockStore({ deck: deckInitialState });
+    // moxios.install();
   });
 
-  afterEach(() => {});
+  afterEach(() => {
+    // store.clearActions();
+    // moxios.uninstall();
+    // mockAdapter.restore();
+  });
 
   describe('DeckList action', () => {
     it('should return a function', () => {
       expect(DeckActions.getDeckList()).toBeInstanceOf(Function);
     });
 
-    it('should dispatch DeckList action', () => {
-      const mockAdapter = new MockAdapter(axios as any);
+    it('should dispatch DeckList action', async () => {
+      const store = mockStore({ deck: deckInitialState });
 
-      mockAdapter.onGet(`${process.env.API_ENDPOINT}/api/deck/`).reply(200, {
+      mockAdapter.onGet('/api/deck/').reply(200, {
         results: [deckObject],
       });
 
-      const expectedActions = [{ type: DeckTypes.LIST_DECKS, data: { 4: deckObject } }];
+      // moxios.wait(() => {
+      //   const request = moxios.requests.mostRecent();
+      //   request.respondWith({
+      //     status: 200,
+      //     response: {
+      //       results: [deckObject],
+      //     },
+      //   });
+      // });
 
-      return store.dispatch(DeckActions.getDeckList()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+      const expectedActions = [{ type: DeckTypes.LIST_DECKS, data: { 4: deckObject } }];
+      await store.dispatch(DeckActions.getDeckList());
+
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
@@ -60,7 +76,7 @@ describe('Deck actions', () => {
     });
 
     it('should dispatch SelectDeck action', () => {
-      const mockAdapter = new MockAdapter(axios as any);
+      const store = mockStore({ deck: deckInitialState });
       deckObject.cards = [
         {
           title: 'Loucuras',
@@ -70,16 +86,16 @@ describe('Deck actions', () => {
         },
       ];
       delete deckObject.id;
-
-      mockAdapter.onGet('/api/deck/1').reply(200, {
-        ...deckObject,
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: deckObject,
+        });
       });
-
       const expectedActions = [{ type: DeckTypes.SELECT_DECK, data: deckObject }];
-
-      return store.dispatch(DeckActions.selectDeck(1)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+      store.dispatch(DeckActions.selectDeck(1));
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 });

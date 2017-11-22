@@ -1,12 +1,14 @@
 module.exports = {
-  // transform: {
-  //   '^.+\\.(tsx|ts)?$': 'ts-jest',
-  // },
   verbose: true,
-  setupTestFrameworkScriptFile: 'raf/polyfill',
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
-  modulePaths: ['src/app', 'src/styles'],
-  unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],
+  // setupTestFrameworkScriptFile: 'raf/polyfill',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  modulePaths: ['src/app', 'src/styles', 'src/images'],
+  mapCoverage: true,
+  unmockedModulePathPatterns: [
+    'node_modules/react/',
+    'node_modules/enzyme/',
+    'node_modules/axios/',
+  ],
   transform: {
     '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
   },
