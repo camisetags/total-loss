@@ -1,12 +1,10 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as Enzyme from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter, Link } from 'react-router-dom';
 
-import { 
-  DeckSelect as DeckSelectContainer, 
-} from '../../../../src/app/pages/deck/DeckSelect/container';
+import { DeckSelect as Container } from '../../../../src/app/pages/deck/DeckSelect/container';
 import { Deck, DeckState } from '../../../../src/app/data/deck/types';
 
 describe('DeckSelect Container', () => {
@@ -30,7 +28,7 @@ describe('DeckSelect Container', () => {
 
   const mockFetchDecks = jest.fn();
   const mockFetchDeck = jest.fn();
-  const componentDidMountSpy = jest.spyOn(DeckSelectContainer.prototype, 'componentDidMount');
+  const componentDidMountSpy = jest.spyOn(Container.prototype, 'componentDidMount');
 
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
@@ -41,8 +39,8 @@ describe('DeckSelect Container', () => {
   });
 
   it('should render loading component', () => {
-    const wrapper = mount(
-      <DeckSelectContainer
+    const wrapper = Enzyme.mount(
+      <Container
         decks={[deckInitialState[0] as Deck]}
         fetchDeck={() => mockFetchDeck()}
         fetchDecks={() => mockFetchDecks()}
@@ -56,7 +54,7 @@ describe('DeckSelect Container', () => {
   it('should render deckSelect page component inside container', () => {
     const rendered = renderer.create(
       <MemoryRouter>
-        <DeckSelectContainer
+        <Container
           decks={(Object as any).values(deckInitialState) as Deck[]}
           fetchDeck={() => mockFetchDeck()}
           fetchDecks={() => mockFetchDecks()}
@@ -68,8 +66,8 @@ describe('DeckSelect Container', () => {
   });
 
   it('should call fetch decks on componentDidMount', () => {
-    const wrapper = mount(
-      <DeckSelectContainer
+    const wrapper = Enzyme.mount(
+      <Container
         decks={[deckInitialState[0]]}
         fetchDeck={() => mockFetchDeck()}
         fetchDecks={() => mockFetchDecks()}
@@ -83,9 +81,9 @@ describe('DeckSelect Container', () => {
   });
 
   it('should call fetch single deck', () => {
-    const wrapper = mount(
+    const wrapper = Enzyme.mount(
       <MemoryRouter>
-        <DeckSelectContainer
+        <Container
           decks={(Object as any).values(deckInitialState) as Deck[]}
           fetchDeck={() => mockFetchDeck()}
           fetchDecks={() => mockFetchDecks()}

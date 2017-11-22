@@ -1,9 +1,16 @@
+export interface Card {
+  title: string;
+  description: string;
+  acceptChallenge: number;
+  refuseChallenge: number;
+}
+
 export interface Deck {
   id: number;
   selected: boolean;
   name: string;
   description: string;
-  cards: object[];
+  cards?: Card[];
 }
 
 export type DeckState = {

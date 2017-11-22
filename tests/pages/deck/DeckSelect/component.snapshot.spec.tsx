@@ -43,7 +43,7 @@ describe('DeckSelect page', () => {
   it('should call selectDeck event', () => {
     const mockFunc = jest.fn();
 
-    const pageWrapper = mount(
+    const pageWrapper = Enzyme.mount(
       <MemoryRouter>
         <DeckPageComponent decks={deckList as Deck[]} selectDeck={deckId => mockFunc(deckId)} />
       </MemoryRouter>,

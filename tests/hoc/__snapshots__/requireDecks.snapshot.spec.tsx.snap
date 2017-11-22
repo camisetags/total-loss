@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requireDecks HOC should return NextComponent 1`] = `
+<div>
+  Simple Compoenent
+  
+</div>
+`;

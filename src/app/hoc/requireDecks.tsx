@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, InferableComponentEnhancerWithProps } from 'react-redux';
 import { RootState } from '../data/types';
-// import * as deckRepository from '../deck/repository';
+import { Deck } from '../data/deck/types';
 
-type FilterProps = {
-  decks: object[];
+export type FilterProps = {
+  decks: Deck[];
 };
 
 const DeckFilter = (NextComponent: React.ReactType) => {
@@ -17,7 +17,7 @@ const DeckFilter = (NextComponent: React.ReactType) => {
     return <NextComponent {...props} />;
   };
 
-  const mapStateToProps = (state: any) => ({
+  const mapStateToProps = (state: RootState) => ({
     decks: Object.values(state.deck),
   });
 

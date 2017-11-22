@@ -29,7 +29,12 @@ export class DeckSelect extends React.Component<DeckSelectProps, {}> {
       return <Loading />;
     }
 
-    return <DeckSelectComponent decks={this.props.decks} selectDeck={() => this.selectDeck} />;
+    return (
+      <DeckSelectComponent
+        decks={this.props.decks}
+        selectDeck={(deckId: number) => this.selectDeck(deckId)}
+      />
+    );
   }
 }
 

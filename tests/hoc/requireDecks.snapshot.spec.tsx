@@ -1,58 +1,60 @@
 /* eslint react/prop-types:0 */
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
-import renderer from 'react-test-renderer';
-import requireDecks from '../../src/app/hoc/requireDecks';
+import * as renderer from 'react-test-renderer';
+import requireDecks, { FilterProps } from '../../src/app/hoc/requireDecks';
+import { DeckState } from '../../src/app/data/deck/types';
+import { RootState } from '../../src/app/data/types';
 
-describe('requireDecks middleware', () => {
+describe('requireDecks HOC', () => {
   const simpleCompoenent = props => (
     <div>
       Simple Compoenent
-      {props.selected.name}
+      {props.decks[0].name}
     </div>
   );
 
   it('should return RedirectComponent', () => {
-    const deckState = {
-      selected: {
-        name: '',
-        description: '',
-        cards: [],
-      },
-
-      list: [
+    const decksFilterProps: FilterProps = {
+      decks: [
         {
-          name: '',
+          id: 0,
+          selected: false,
+          name: 'Test Component',
           description: '',
+          cards: [],
         },
       ],
     };
-    const filter = requireDecks(simpleCompoenent)(deckState);
+
+    // tslint:disable-next-line
+    const filter = requireDecks(simpleCompoenent as any)(decksFilterProps);
 
     expect(JSON.stringify(filter)).toEqual(JSON.stringify(<Redirect to="deck-select" />));
   });
 
   it('should return NextComponent', () => {
-    const deckState = {
-      selected: {
-        name: '',
-        description: '',
-        cards: [],
-      },
-
-      list: [
+    const deckState: FilterProps = {
+      decks: [
         {
+          id: 0,
+          selected: false,
           name: '',
           description: '',
+          cards: [],
         },
         {
+          id: 1,
+          selected: true,
           name: '',
           description: '',
+          cards: [],
         },
       ],
     };
 
-    const filter = requireDecks(simpleCompoenent)(deckState);
+    // tslint:disable-next-line
+    const filter = requireDecks(simpleCompoenent as React.ReactType)(deckState);
     const rendered = renderer.create(filter);
 
     expect(rendered.toJSON()).toMatchSnapshot();
