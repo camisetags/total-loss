@@ -1,85 +1,59 @@
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import * as axios from 'axios';
-import MockAdapter = require('axios-mock-adapter');
-import * as DeckActions from '../../../src/app/data/deck/actions';
-import * as DeckTypes from '../../../src/app/data/deck/actionTypes';
+jest.mock('../../../src/app/data/deck/api');
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import { createStore } from 'redux';
+import DeckApi from '../../../src/app/data/deck/api';
+import * as actionTypes from '../../../src/app/data/deck/actionTypes';
+import * as actions from '../../../src/app/data/deck/actions';
+import { Api } from '../../../src/app/data/types';
+import { Deck } from '../../../src/app/data/deck/types';
+
+const api: jest.Mocked<Api> = DeckApi as any;
 
 describe('Deck actions', () => {
-  const deckInitialState = {
-    0: {
-      id: 0,
-      name: '',
-      description: '',
-      selected: true,
-      cards: [],
-    },
+  const store = () => {
+    const reducer = jest.fn();
+    const { dispatch } = createStore(reducer);
+    reducer.mockReset();
+    return { dispatch, reducer };
   };
+
+  const eventually = assertFn =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          assertFn();
+        } catch (e) {
+          return reject(e);
+        }
+        resolve();
+      }, 10);
+    });
+
+  const expectTypes = (reducer, types) => () =>
+    expect(reducer.mock.calls.map(x => x[1].type)).toEqual(types);
 
   const deckObject: any = {
     id: 4,
     name: 'O ditador!',
     description: 'Faça essas prendas fingindo ser um ditador.',
-    cards: [],
   };
 
-  let store;
-
-  beforeEach(() => {
-    store = mockStore({ deck: deckInitialState });
-  });
-
-  afterEach(() => {});
-
-  describe('DeckList action', () => {
-    it('should return a function', () => {
-      expect(DeckActions.getDeckList()).toBeInstanceOf(Function);
+  describe('Deck list action', () => {
+    beforeEach(() => {
+      const deckListResponse = { data: { results: [deckObject] } };
+      api.getList.mockReturnValue(Promise.resolve(deckListResponse));
     });
 
-    it('should dispatch DeckList action', () => {
-      const mockAdapter = new MockAdapter(axios as any);
-
-      mockAdapter.onGet(`${process.env.API_ENDPOINT}/api/deck/`).reply(200, {
-        results: [deckObject],
-      });
-
-      const expectedActions = [{ type: DeckTypes.LIST_DECKS, data: { 4: deckObject } }];
-
-      return store.dispatch(DeckActions.getDeckList()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
-    });
-  });
-
-  describe('SelectDeck action', () => {
-    it('should return a function', () => {
-      expect(DeckActions.selectDeck(1)).toBeInstanceOf(Function);
+    it('sends an API request', () => {
+      actions.getDeckList()(jest.fn());
+      expect(api.getList.mock.calls.length).toEqual(1);
     });
 
-    it('should dispatch SelectDeck action', () => {
-      const mockAdapter = new MockAdapter(axios as any);
-      deckObject.cards = [
-        {
-          title: 'Loucuras',
-          description: 'Vire o dedo indicador até encostar nas costas da sua mão.',
-          accept_challenge: 1,
-          refuse_challenge: -1,
-        },
-      ];
-      delete deckObject.id;
+    it('dispatches LIST_DECKS action', () => {
+      const { dispatch, reducer } = store();
+      actions.getDeckList()(dispatch);
 
-      mockAdapter.onGet('/api/deck/1').reply(200, {
-        ...deckObject,
-      });
-
-      const expectedActions = [{ type: DeckTypes.SELECT_DECK, data: deckObject }];
-
-      return store.dispatch(DeckActions.selectDeck(1)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
+      return eventually(expectTypes(reducer, [actionTypes.LIST_DECKS]));
     });
   });
 });
