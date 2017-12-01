@@ -7,4 +7,10 @@ export const switchCase = key => (obj = {}) => (defaultCase) => {
 
 export const range = num => [...Array(num).keys()];
 
-export default { switchCase, range };
+export function randomElement(lista) {
+  const randomNumber = Math.floor(Math.random() * lista.length) + 1;
+  const elementRandom = lista.find(element => element.id === randomNumber);
+  return elementRandom;
+}
+
+export default { switchCase, range, randomElement: lista => lista };

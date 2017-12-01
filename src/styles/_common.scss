@@ -1,13 +1,11 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-    background: url('../images/bath-background.jpg');
+    height: 80vh;
+    background: url('../images/friends.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     &:after {
         content: '';
-        background-image: url('../images/toilet-seat.png');
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-size: contain;
         width: 100%;
         height: 100%;
         margin: 0 auto;
@@ -37,14 +35,17 @@ body {
     font-size: 120px;
     text-align: center;
     margin: 17px;
-    animation: titleBobble 3s alternate infinite ease-in-out;
+    animation: titleBobble 8s alternate infinite ease-in-out;
     font-family: 'Pacifico', cursive;
-    filter: blur(5px);
+    color: white;
+    filter: blur(1px);
 }
 
-.center-grid>a>button {
-    animation: buttonBobble 7s alternate infinite ease-in-out;
+
+/*.center-grid > a > button {
+  animation: buttonBobble 7s alternate infinite ease-in-out;
 }
+*/
 
 @keyframes buttonBobble {
     from {
@@ -75,6 +76,7 @@ body {
 .button {
     background-color: #4c7faf;
     border: none;
+    margin-top: 40%;
     color: white;
     padding: 9px 12px;
     text-align: center;
@@ -116,13 +118,6 @@ body {
     margin: 0 auto;
     width: 80%;
     position: relative;
-}
-
-.arrow-icon {
-    border: solid #fff;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
 }
 
 .right {

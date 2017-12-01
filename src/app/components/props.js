@@ -8,11 +8,3 @@ export type CardProps = {
   },
   children: Node,
 };
-
-export type CardUserProps = {
-  content: {
-    name: string,
-    score: number,
-    description: string,
-  },
-};

@@ -1,39 +1,40 @@
 .card {
-  position: relative;
-  z-index: 1;
-  background: #f9f9f9;
-  overflow: hidden;
-  left: 0;
-  right: 0;
-  top: 50px;
-  width: 350px;
-  height: 250px;
-  margin: 10px;
-  border: 1px solid #f3eded;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
-  padding: 15px;
-  margin-bottom: 20px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15), 0 9px 21px rgba(0, 0, 0, 0.22);
-  }
-  .card-center {
-    margin: auto;
-  }
-  a.button {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-  h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.16);
-  }
-  &:after {
+    position: relative;
+    z-index: 1;
+    background: #eae0c5;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    color: #4c392b;
+    top: 70px;
+    width: 350px;
+    height: 250px;
+    margin: 10px;
+    border: 1px solid #c9b97b;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15), 0 9px 21px rgba(0, 0, 0, 0.22);
+    }
+    .card-center {
+        margin: auto;
+    }
+    a.button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.16);
+    }
+    /* &:after {
     content: "🍻";
     position: absolute;
     top: 50%;
@@ -42,13 +43,13 @@
     opacity: 0.2;
     font-size: 120px;
     animation: bobble 1s alternate infinite ease-in-out;
-  }
-  @keyframes bobble {
-    from {
-      transform: translate(-50%, -30%) rotate(45deg);
+  }*/
+    @keyframes bobble {
+        from {
+            transform: translate(-50%, -30%) rotate(45deg);
+        }
+        to {
+            transform: translate(-50%, -30%) rotate(-45deg);
+        }
     }
-    to {
-      transform: translate(-50%, -30%) rotate(-45deg);
-    }
-  }
 }

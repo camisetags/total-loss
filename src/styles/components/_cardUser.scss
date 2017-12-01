@@ -1,0 +1,46 @@
+.score {
+    position: absolute;
+    top: 88%;
+    left: 84%;
+    font-size: 14px;
+}
+
+.edit-icon {
+    background: url('../images/edit.png');
+    background-repeat: no-repeat;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    top: 10%;
+    left: 93%;
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+}
+
+.button-submit {
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    top: 70%;
+    left: 70%;
+    position: absolute;
+    background-color: #4c392b;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #4c392b;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

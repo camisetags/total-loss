@@ -18,13 +18,36 @@
 
 .users-cards {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     @include breakpoint(desktop) {
-        align-items: center;
-        width: 57%;
-        height: 202px;
+        width: 64%;
+        justify-content: center;
+        flex-wrap: wrap;
     }
+}
+
+.seta-para-cima {
+    background: url('../images/seta_para_cima.png');
+    margin-top: 4%;
+    width: 101px;
+    height: 96px;
+}
+
+.seta-para-baixo {
+    background: url('../images/seta_para_baixo.png');
+    margin-top: 10%;
+    width: 101px;
+    height: 96px;
+}
+
+.number-users {
+    font-size: 100px;
+    text-align: center;
+    margin: 17px; //    animation: titleBobble 8s alternate infinite ease-in-out;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    filter: blur(1px);
 }
 
 .button-margin {

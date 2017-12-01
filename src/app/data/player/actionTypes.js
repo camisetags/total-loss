@@ -1,3 +1,4 @@
 // @flow
-export const ADD_USER: string = 'ADD_USER';
-export const LIST_USER_RANDOM: string = 'LIST_USER_RANDOM';
+export const UPDATE_USERS: string = 'UPDATE_USERS';
+export const INPUT_CHANGE: string = 'INPUT_CHANGE';
+export const POST_USER: string = 'POST_USER';
